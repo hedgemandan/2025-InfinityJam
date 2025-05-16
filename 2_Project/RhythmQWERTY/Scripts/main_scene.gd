@@ -37,7 +37,7 @@ func toggle_popup():
 ## timer for adding new buttons every 5 seconds and incrementing the gamestate by 1
 func start_timer():
 	var timer = Timer.new()
-	timer.wait_time = 5
+	timer.wait_time = 2
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 	add_child(timer)
