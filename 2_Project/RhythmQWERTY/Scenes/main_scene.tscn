@@ -8,7 +8,6 @@
 script = ExtResource("1_6l7je")
 
 [node name="LayoutV01" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(960, 540)
 texture = ExtResource("2_jv6wh")
 
