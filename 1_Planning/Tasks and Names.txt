@@ -1,0 +1,21 @@
+
+Make buttons randomly "fill"
+Make something happen when keys are pressed
+
+
+Make button array not overflow
+
+
+
+Button Press Simulator
+Clicky Clacky Keyboard Whacky
+Push Push Push!
+QWERTY Squirty!
+EXQWERT Typer!
+Rhythm QWERTY
+sQWERTY!
+Clink
+Clunk
+Tack
+
+ting instead click upon maximum fill click

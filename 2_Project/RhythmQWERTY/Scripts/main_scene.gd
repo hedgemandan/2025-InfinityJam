@@ -3,9 +3,11 @@ extends Node2D
 var popup_menu = preload("res://Scenes/PopupMenu.tscn")
 var popup_instance = null
 var button = preload("res://Scenes/button.tscn")
+#var unpacked_instance = button.instantiate()
 var button_instance = null
 @onready var marker = $Marker2D
 @onready var button_array = [$Button3, $Button4, $Button5, $Button6, $Button7, $Button8, $Button9, $Button10, $Button11, $Button12, $Button13, $Button14, $Button15, $Button16, $Button17, $Button18, $Button19, $Button20, $Button21, $Button22, $Button23, $Button24, $Button25, $Button26, $Button27, $Button28, $Button29, $Button30, $Button31, $Button32, $Button33, $Button34, $Button35, $Button36, $Button37, $Button38, $Button39, $Button40, $Button41, $Button42, $Button43, $Button44, $Button45, $Button46, $Button47, $Button48, $Button49]
+var bufferOGcolour
 
 var buttons_data = {
 	"Button":		{"Letter":"H","Row":3,"Column":7},#
@@ -59,17 +61,17 @@ var buttons_data = {
 	"Button49":		{"Letter":"Enter","Row":2,"Column":14}}
 	
 
-
 func _ready():
 	start_timer()
-
-
+	start_timer2()
 
 ## Popup Menu Function
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_ESCAPE:
 		toggle_popup()
 		
+		
+
 ## Key press detection event
 	if event is InputEventKey and event.is_pressed():
 		var key_pressed = OS.get_keycode_string(event.keycode)
@@ -77,17 +79,18 @@ func _input(event):
 		print("This is the button you pressed:", key_pressed)
 
 func check_buttons(key_pressed):
-
 	for button_name in buttons_data.keys():
 		if buttons_data[button_name]["Letter"] == key_pressed:
 			var button_node = get_node(button_name)
-			if button_node:
-				button_node.visible = !button_node.visible
+			if button_node.visible:
+				button_node.scale = Vector2(1, 1)
+				button_node.modulate = bufferOGcolour
+			else:
+				pass
 
 
 
-
-## Popup Menu function
+## Popup Menu function Pt. 2
 func toggle_popup():
 	if popup_instance:
 		popup_instance.queue_free()
@@ -97,23 +100,36 @@ func toggle_popup():
 		add_child(popup_instance)
 		popup_instance.global_position = get_viewport_rect().size / 2 - popup_instance.size / 2
 		
-		
+
+
 ## timer for adding new buttons every 5 seconds and incrementing the gamestate by 1
 func start_timer():
 	var timer = Timer.new()
-	timer.wait_time = 1
+	timer.wait_time = 5
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
 	add_child(timer)
 	timer.start()
 	
 func _on_timer_timeout():
-	#button_instance = button.instantiate()
-	#add_child(button_instance)
-	#button_instance.global_position = marker.global_position
 	button_array[global.gamestep].show()
+	global.numberoffbuttonsvisible += 1
 	if global.gamestep >= 46:
 		pass
 	else: global.gamestep += 1
 	
+	
+func start_timer2():
+	var timer = Timer.new()
+	timer.wait_time = 2
+	timer.one_shot = false
+	timer.connect("timeout", Callable(self, "_on_timer_timeout2"))
+	add_child(timer)
+	timer.start()
+	
+func _on_timer_timeout2():
+	var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
+	random_node.scale = Vector2(1.1, 1.1)
+	bufferOGcolour = random_node.modulate
+	random_node.modulate = Color(1,1,0,1)
 	
