@@ -6,8 +6,15 @@ var button = preload("res://Scenes/button.tscn")
 #var unpacked_instance = button.instantiate()
 var button_instance = null
 @onready var marker = $Marker2D
-@onready var button_array = [$Button3, $Button4, $Button5, $Button6, $Button7, $Button8, $Button9, $Button10, $Button11, $Button12, $Button13, $Button14, $Button15, $Button16, $Button17, $Button18, $Button19, $Button20, $Button21, $Button22, $Button23, $Button24, $Button25, $Button26, $Button27, $Button28, $Button29, $Button30, $Button31, $Button32, $Button33, $Button34, $Button35, $Button36, $Button37, $Button38, $Button39, $Button40, $Button41, $Button42, $Button43, $Button44, $Button45, $Button46, $Button47, $Button48, $Button49]
+@onready var button_array = [$Button, $Button2, $Button3, $Button4, $Button5, $Button6, $Button7, $Button8, $Button9, $Button10, $Button11, $Button12, $Button13, $Button14, $Button15, $Button16, $Button17, $Button18, $Button19, $Button20, $Button21, $Button22, $Button23, $Button24, $Button25, $Button26, $Button27, $Button28, $Button29, $Button30, $Button31, $Button32, $Button33, $Button34, $Button35, $Button36, $Button37, $Button38, $Button39, $Button40, $Button41, $Button42, $Button43, $Button44, $Button45, $Button46, $Button47, $Button48, $Button49]
 var bufferOGcolour
+@onready var SFXCorrectPress = $SFXCorrectPress
+@onready var SFXIncorrectPress = $SFXIncorrectPress
+
+@onready var correct_clicks = $"Correct Clicks"
+@onready var incorrect_clicks = $"Incorrect Clicks"
+@onready var keys_unlocked = $"Keys Unlocked"
+
 
 var buttons_data = {
 	"Button":		{"Letter":"H","Row":3,"Column":7},#
@@ -85,6 +92,15 @@ func check_buttons(key_pressed):
 			if button_node.visible:
 				button_node.scale = Vector2(1, 1)
 				button_node.modulate = bufferOGcolour
+				if button_node in global.clickablebuttons:
+					SFXCorrectPress.play()
+					global.clickablebuttons.erase(button_node)
+					global.correcthits += 1
+					correct_clicks.text = str(global.correcthits)
+				else:
+					SFXIncorrectPress.play()
+					global.incorrecthits += 1
+					incorrect_clicks.text = str(global.incorrecthits)
 			else:
 				pass
 
@@ -112,11 +128,14 @@ func start_timer():
 	timer.start()
 	
 func _on_timer_timeout():
-	button_array[global.gamestep].show()
+	button_array[global.gamestep + 2].show()
 	global.numberoffbuttonsvisible += 1
+	keys_unlocked.text = str(global.numberoffbuttonsvisible + 2)
+	
 	if global.gamestep >= 46:
 		pass
-	else: global.gamestep += 1
+	else: 
+		global.gamestep += 1
 	
 	
 func start_timer2():
@@ -129,7 +148,8 @@ func start_timer2():
 	
 func _on_timer_timeout2():
 	var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
-	random_node.scale = Vector2(1.1, 1.1)
+	random_node.scale = Vector2(1, 1)
+	global.clickablebuttons.append(random_node)
 	bufferOGcolour = random_node.modulate
 	random_node.modulate = Color(1,1,0,1)
 	
