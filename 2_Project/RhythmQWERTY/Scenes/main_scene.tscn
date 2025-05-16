@@ -1,3 +1,29 @@
-[gd_scene format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=3 format=3 uid="uid://bda0noe43wn4p"]
+
+[ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
+[ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_6l7je")
+
+[node name="Button" parent="." instance=ExtResource("1_52fb6")]
+position = Vector2(880, 496)
+
+[node name="Button2" parent="." instance=ExtResource("1_52fb6")]
+position = Vector2(1008, 496)
+
+[node name="Button3" parent="." instance=ExtResource("1_52fb6")]
+visible = false
+position = Vector2(880, 624)
+
+[node name="Button4" parent="." instance=ExtResource("1_52fb6")]
+visible = false
+position = Vector2(1008, 624)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+visible = false
+position = Vector2(1136, 496)
+
+[node name="Marker2D2" type="Marker2D" parent="."]
+visible = false
+position = Vector2(1264, 496)
