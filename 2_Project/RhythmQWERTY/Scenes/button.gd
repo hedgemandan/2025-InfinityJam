@@ -4,18 +4,18 @@ func _ready():
 	modulate.a = 0
 	fade_in()
 	var buttons_data = {
-		"button":		{"Letter":"H","Row":3,"Column":7},
-		"button2":		{"Letter":"J","Row":3,"Column":8},
-		"button3":		{"Letter":"G","Row":3,"Column":6},
-		"button4":		{"Letter":"H","Row":3,"Column":7},
-		"button5":		{"Letter":"H","Row":3,"Column":7},
-		"button6":		{"Letter":"H","Row":3,"Column":7},
-		"button7":		{"Letter":"H","Row":3,"Column":7},
-		"button8":		{"Letter":"H","Row":3,"Column":7},
-		"button9":		{"Letter":"H","Row":3,"Column":7},
-		"button10":		{"Letter":"H","Row":3,"Column":7},
-		"button11":		{"Letter":"H","Row":3,"Column":7},
-		"button12":		{"Letter":"H","Row":3,"Column":7},
+		"button":		{"Letter":"H","Row":3,"Column":7},#
+		"button2":		{"Letter":"J","Row":3,"Column":8},#
+		"button3":		{"Letter":"G","Row":3,"Column":6},#
+		"button4":		{"Letter":"K","Row":3,"Column":9},#
+		"button5":		{"Letter":"M","Row":4,"Column":8},#
+		"button6":		{"Letter":"U","Row":2,"Column":8},#
+		"button7":		{"Letter":"N","Row":4,"Column":7},#
+		"button8":		{"Letter":"Y","Row":2,"Column":7},#
+		"button9":		{"Letter":"I","Row":2,"Column":9},#
+		"button10":		{"Letter":"B","Row":4,"Column":7},#
+		"button11":		{"Letter":",","Row":4,"Column":9},#
+		"button12":		{"Letter":"T","Row":2,"Column":7},
 		"button13":		{"Letter":"H","Row":3,"Column":7},
 		"button14":		{"Letter":"H","Row":3,"Column":7},
 		"button15":		{"Letter":"H","Row":3,"Column":7},
