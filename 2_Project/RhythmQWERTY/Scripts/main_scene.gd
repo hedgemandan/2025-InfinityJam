@@ -15,7 +15,6 @@ var bufferOGcolour
 @onready var incorrect_clicks = $"Incorrect Clicks"
 @onready var keys_unlocked = $"Keys Unlocked"
 
-
 var buttons_data = {
 	"Button":		{"Letter":"H","Row":3,"Column":7},#
 	"Button2":		{"Letter":"J","Row":3,"Column":8},#
@@ -27,27 +26,27 @@ var buttons_data = {
 	"Button8":		{"Letter":"Y","Row":2,"Column":7},#
 	"Button9":		{"Letter":"I","Row":2,"Column":9},#
 	"Button10":		{"Letter":"B","Row":4,"Column":6},#
-	"Button11":		{"Letter":",","Row":4,"Column":9},#
+	"Button11":		{"Letter":"Comma","Row":4,"Column":9},#
 	"Button12":		{"Letter":"T","Row":2,"Column":6},#
 	"Button13":		{"Letter":"F","Row":3,"Column":5},#
 	"Button14":		{"Letter":"L","Row":3,"Column":10},#
 	"Button15":		{"Letter":"O","Row":2,"Column":10},#
 	"Button16":		{"Letter":"V","Row":4,"Column":5},#
-	"Button17":		{"Letter":".","Row":4,"Column":10},#
+	"Button17":		{"Letter":"Period","Row":4,"Column":10},#
 	"Button18":		{"Letter":"R","Row":2,"Column":5},#
 	"Button19":		{"Letter":"D","Row":3,"Column":4},#
 	"Button20":		{"Letter":"C","Row":4,"Column":4},#
 	"Button21":		{"Letter":"P","Row":2,"Column":11},#
-	"Button22":		{"Letter":";","Row":3,"Column":11},#
+	"Button22":		{"Letter":"Semicolon","Row":3,"Column":11},#
 	"Button23":		{"Letter":"7","Row":1,"Column":8},#
 	"Button24":		{"Letter":"6","Row":1,"Column":7},#
 	"Button25":		{"Letter":"8","Row":1,"Column":9},#
 	"Button26":		{"Letter":"9","Row":1,"Column":10},#
-	"Button27":		{"Letter":"/","Row":4,"Column":4},#
+	"Button27":		{"Letter":"Slash","Row":4,"Column":4},#
 	"Button28":		{"Letter":"Space","Row":5,"Column":6},#
 	"Button29":		{"Letter":"5","Row":1,"Column":6},#
-	"Button30":		{"Letter":"[","Row":2,"Column":12},#
-	"Button31":		{"Letter":"'","Row":3,"Column":12},#
+	"Button30":		{"Letter":"BracketLeft","Row":2,"Column":12},#
+	"Button31":		{"Letter":"Apostrophe","Row":3,"Column":12},#
 	"Button32":		{"Letter":"E","Row":2,"Column":4},#
 	"Button33":		{"Letter":"S","Row":3,"Column":3},#
 	"Button34":		{"Letter":"0","Row":1,"Column":11},#
@@ -57,20 +56,20 @@ var buttons_data = {
 	"Button38":		{"Letter":"W","Row":2,"Column":3},
 	"Button39":		{"Letter":"A","Row":3,"Column":2},
 	"Button40":		{"Letter":"Z","Row":4,"Column":2},
-	"Button41":		{"Letter":"_","Row":1,"Column":12},
-	"Button42":		{"Letter":"=","Row":1,"Column":13},
-	"Button43":		{"Letter":"]","Row":2,"Column":13},
-	"Button44":		{"Letter":"#","Row":3,"Column":13},
+	"Button41":		{"Letter":"Minus","Row":1,"Column":12},
+	"Button42":		{"Letter":"Equal","Row":1,"Column":13},
+	"Button43":		{"Letter":"BracketLeft","Row":2,"Column":13},
+	"Button44":		{"Letter":"NumberSign","Row":3,"Column":13},
 	"Button45":		{"Letter":"2","Row":1,"Column":3},
 	"Button46":		{"Letter":"Q","Row":2,"Column":2},
 	"Button47":		{"Letter":"Backslash","Row":4,"Column":1},
 	"Button48":		{"Letter":"1","Row":1,"Column":2},
 	"Button49":		{"Letter":"Enter","Row":2,"Column":14}}
-	
 
 func _ready():
 	start_timer()
 	start_timer2()
+
 
 ## Popup Menu Function
 func _input(event):
@@ -78,6 +77,7 @@ func _input(event):
 		toggle_popup()
 		
 		
+
 
 ## Key press detection event
 	if event is InputEventKey and event.is_pressed():
@@ -128,16 +128,18 @@ func start_timer():
 	timer.start()
 	
 func _on_timer_timeout():
-	button_array[global.gamestep + 2].show()
-	global.numberoffbuttonsvisible += 1
-	keys_unlocked.text = str(global.numberoffbuttonsvisible + 2)
-	
-	if global.gamestep >= 46:
+	if global.gamestep >= 47:
 		pass
 	else: 
+		button_array[global.gamestep + 2].show()
+		global.numberoffbuttonsvisible += 1
+		keys_unlocked.text = str(global.numberoffbuttonsvisible)
 		global.gamestep += 1
-	
-	
+
+
+
+
+## timer for making a random button go green from the selection of buttons which are visible
 func start_timer2():
 	var timer = Timer.new()
 	timer.wait_time = 2
@@ -147,9 +149,17 @@ func start_timer2():
 	timer.start()
 	
 func _on_timer_timeout2():
-	var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
-	random_node.scale = Vector2(1, 1)
-	global.clickablebuttons.append(random_node)
-	bufferOGcolour = random_node.modulate
-	random_node.modulate = Color(1,1,0,1)
+	if global.numberoffbuttonsvisible <= 49:
+		
+		#if/conditions like gamestate are met then highlight more than 1 random button. Then three adjacent horizontal. Then 2 adjacent vertical. 
+		var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
+		#line here to reference one adjacent horizontal to random_node if available
+		print("number of buttons visible:", global.numberoffbuttonsvisible)
+		random_node.scale = Vector2(1, 1)
+		global.clickablebuttons.append(random_node)
+		
+		bufferOGcolour = random_node.modulate
+		random_node.modulate = Color(1,1,0,1) #TWEEN TIMER IN HERE for fade in? Or leave for animation
+	else:
+		pass
 	

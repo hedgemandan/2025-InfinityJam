@@ -1,12 +1,4 @@
 
-Make buttons randomly "fill"
-Make something happen when keys are pressed
-
-
-Make button array not overflow
-
-
-
 Button Press Simulator
 Clicky Clacky Keyboard Whacky
 Push Push Push!

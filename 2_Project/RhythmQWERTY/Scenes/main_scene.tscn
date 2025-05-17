@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
 [ext_resource type="Texture2D" uid="uid://dyka72tgw6312" path="res://Assets/Layout_V01.png" id="2_jv6wh"]
-[ext_resource type="AudioStream" uid="uid://bw63vh12udvfu" path="res://Assets/SFX/chips-collide-2.ogg" id="4_x6ack"]
+[ext_resource type="AudioStream" uid="uid://dawjqf2ov4arj" path="res://Assets/SFX/ui_dlc_alert_01.wav" id="4_iacmt"]
 [ext_resource type="AudioStream" uid="uid://cjxx3k783m1mp" path="res://Assets/SFX/powerDown_000.ogg" id="5_iacmt"]
 
 [node name="MainScene" type="Node2D"]
@@ -217,7 +217,7 @@ visible = false
 position = Vector2(1760, 470)
 
 [node name="SFXCorrectPress" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_x6ack")
+stream = ExtResource("4_iacmt")
 
 [node name="SFXIncorrectPress" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_iacmt")

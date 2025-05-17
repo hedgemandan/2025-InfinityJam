@@ -1,7 +1,7 @@
 extends Node
 
 var gamestep = 0
-var numberoffbuttonsvisible = 0
+var numberoffbuttonsvisible = 2 #starts at 2 because 2 buttons start visible from the beginning
 var clickablebuttons = []
 var correcthits = 0
 var incorrecthits = 0
