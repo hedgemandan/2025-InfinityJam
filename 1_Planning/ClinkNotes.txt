@@ -1,0 +1,14 @@
+Sort pace of game!
+Shrink animation
+Fade in buttons
+Shake & explode animation
+End game screen
+Controls for menu implemented
+
+
+
+Stretch:
+Contiguous pairings
+Enter button
+Fast forward
+Investigate lock out controls instead of game over
