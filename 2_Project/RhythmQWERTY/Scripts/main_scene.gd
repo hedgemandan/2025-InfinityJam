@@ -74,6 +74,12 @@ func _ready():
 	start_newbuttonspawn_timer()
 	start_buttoncharge_timer()
 	Music.play()
+
+	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
+	for node in all_animated_nodes:
+		if node.has_signal("reached_max_extent"):
+			node.connect("reached_max_extent", self._on_reached_max_extent)
+		
 	#for n in buttons_data.size():
 		#$AllButtons/Button.modulate = 
 		#print("I have interated this many times:", n)
@@ -84,8 +90,9 @@ func _ready():
 			button_node.modulate = buttons_data[button_name]["Color"]
 			print("Applied color to:", button_name)
 
-
-
+func _on_reached_max_extent():
+	print("Game Over!")
+	queue_free()
 
 ## Popup Menu Function
 func _input(event):

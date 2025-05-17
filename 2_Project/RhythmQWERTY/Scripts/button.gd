@@ -1,5 +1,7 @@
 extends Node2D
 
+signal reached_max_extent
+var isMovingForward = true
 
 func _ready():
 	pass
@@ -13,16 +15,16 @@ func appear_anim():
 
 func grow_anim():
 	var anim_player = $AnimationPlayer
+	isMovingForward = true
 	$AnimationPlayer.speed_scale = 1
 	if self.visible:
 		anim_player.play("Grow")
-		
-		#var tween = create_tween()
-		#tween.tween_property(self, "modulate:a", 1.0, 1.5)
-		#flag = 0
+
 func shrink_anim():
 	var anim_player = $AnimationPlayer
+	isMovingForward = false
 	$AnimationPlayer.speed_scale = -4
+	#anim_player.play("Grow")
 
 func empty_anim():
 	var anim_player = $AnimationPlayer
@@ -36,10 +38,7 @@ func grow_menu_anim():
 	if self.visible:
 		anim_player.play("Grow_Menu")
 
-#
-#when q is pressed
-#button 46 activated
-#
-#
-#button X activated?
-#clear X status and get it ready to charge
+func _on_animation_finished(Grow):
+	if isMovingForward and Grow == "Grow":
+		emit_signal("reached_max_extent")
+		

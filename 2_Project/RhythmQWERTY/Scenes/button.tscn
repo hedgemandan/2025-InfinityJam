@@ -1940,7 +1940,7 @@ _data = {
 &"RESET": SubResource("Animation_svtet")
 }
 
-[node name="Button" type="Node2D"]
+[node name="Button" type="Node2D" groups=["animated_nodes"]]
 script = ExtResource("1_0kpiu")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
@@ -2112,3 +2112,5 @@ texture = ExtResource("5_c4mwi")
 libraries = {
 &"": SubResource("AnimationLibrary_c4mwi")
 }
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
