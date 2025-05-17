@@ -67,8 +67,8 @@ var buttons_data = {
 	"Button49":		{"Letter":"Enter","Row":2,"Column":14}}
 
 func _ready():
-	start_timer()
-	start_timer2()
+	start_newbuttonspawn_timer()
+	start_buttoncharge_timer()
 
 
 ## Popup Menu Function
@@ -91,7 +91,8 @@ func check_buttons(key_pressed):
 			var button_node = get_node(button_name)
 			if button_node.visible:
 				button_node.scale = Vector2(1, 1)
-				button_node.modulate = bufferOGcolour
+				if bufferOGcolour:
+					button_node.modulate = bufferOGcolour
 				if button_node in global.clickablebuttons:
 					SFXCorrectPress.play()
 					global.clickablebuttons.erase(button_node)
@@ -99,10 +100,23 @@ func check_buttons(key_pressed):
 					correct_clicks.text = str(global.correcthits)
 				else:
 					SFXIncorrectPress.play()
+					start_death_timer()
 					global.incorrecthits += 1
 					incorrect_clicks.text = str(global.incorrecthits)
 			else:
 				pass
+
+func start_death_timer():
+	var timer = Timer.new()
+	timer.wait_time = 1
+	timer.one_shot = true
+	timer.connect("timeout", Callable(self, "_on_timer_timeoutdeath"))
+	add_child(timer)
+	timer.start()
+
+func _on_timer_timeoutdeath():
+	queue_free()
+	
 
 
 
@@ -119,15 +133,15 @@ func toggle_popup():
 
 
 ## timer for adding new buttons every 5 seconds and incrementing the gamestate by 1
-func start_timer():
+func start_newbuttonspawn_timer():
 	var timer = Timer.new()
 	timer.wait_time = 5
 	timer.one_shot = false
-	timer.connect("timeout", Callable(self, "_on_timer_timeout"))
+	timer.connect("timeout", Callable(self, "_on_timer_timeoutNB"))
 	add_child(timer)
 	timer.start()
 	
-func _on_timer_timeout():
+func _on_timer_timeoutNB():
 	if global.gamestep >= 47:
 		pass
 	else: 
@@ -140,26 +154,45 @@ func _on_timer_timeout():
 
 
 ## timer for making a random button go green from the selection of buttons which are visible
-func start_timer2():
+func start_buttoncharge_timer():
 	var timer = Timer.new()
-	timer.wait_time = 2
+	timer.wait_time = 2 - (global.gamestep)*0.05
 	timer.one_shot = false
-	timer.connect("timeout", Callable(self, "_on_timer_timeout2"))
+	timer.connect("timeout", Callable(self, "_on_timer_timeoutBC"))
 	add_child(timer)
 	timer.start()
 	
-func _on_timer_timeout2():
+func _on_timer_timeoutBC():
 	if global.numberoffbuttonsvisible <= 49:
 		
 		#if/conditions like gamestate are met then highlight more than 1 random button. Then three adjacent horizontal. Then 2 adjacent vertical. 
-		var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
-		#line here to reference one adjacent horizontal to random_node if available
-		print("number of buttons visible:", global.numberoffbuttonsvisible)
-		random_node.scale = Vector2(1, 1)
-		global.clickablebuttons.append(random_node)
-		
-		bufferOGcolour = random_node.modulate
-		random_node.modulate = Color(1,1,0,1) #TWEEN TIMER IN HERE for fade in? Or leave for animation
+
+		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 10
+		if global.gamestep >= 10: #enable conjoined doubles
+			var spawnlimit = 2
+			for n in spawnlimit:
+				var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
+				if random_node in global.clickablebuttons:
+					pass	#Do not double up charging the same button!
+				else:
+				#line here to reference one adjacent horizontal to random_node if available
+					print("number of buttons visible:", global.numberoffbuttonsvisible)
+					#random_node.scale = Vector2(1, 1)
+					global.clickablebuttons.append(random_node)
+					bufferOGcolour = random_node.modulate
+					random_node.modulate = Color(1,1,0,1) #TWEEN TIMER IN HERE for fade in? Or leave for animation
+		## This immediate paragraph allows only one button to charging at a time prior to gamestep 10
+		else:
+			var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
+			if random_node in global.clickablebuttons:
+				pass	#Do not double up charging the same button!
+			else:
+				
+				print("number of buttons visible:", global.numberoffbuttonsvisible)
+				#random_node.scale = Vector2(1, 1)
+				global.clickablebuttons.append(random_node)
+				bufferOGcolour = random_node.modulate
+				random_node.modulate = Color(1,1,0,1) #TWEEN TIMER IN HERE for fade in? Or leave for animation
 	else:
 		pass
 	

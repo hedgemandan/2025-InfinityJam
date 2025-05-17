@@ -5,3 +5,4 @@ var numberoffbuttonsvisible = 2 #starts at 2 because 2 buttons start visible fro
 var clickablebuttons = []
 var correcthits = 0
 var incorrecthits = 0
+#var spawnrate = 0
