@@ -1,5 +1,14 @@
 extends Control
 
+@onready var score: Label = $Score
+
+# Freeze controls to the main game
+
+# Change score label
+
+# Change volume to the current game volume
+
+# Code for changing the volume
 
 #func _on_continue_pressed():
 	#global.gamestep = 0
