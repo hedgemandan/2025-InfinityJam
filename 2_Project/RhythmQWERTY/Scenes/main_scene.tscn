@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=8 format=3 uid="uid://bda0noe43wn4p"]
 
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
 [ext_resource type="Texture2D" uid="uid://dyka72tgw6312" path="res://Assets/Layout_V01.png" id="2_jv6wh"]
 [ext_resource type="AudioStream" uid="uid://dawjqf2ov4arj" path="res://Assets/SFX/ui_dlc_alert_01.wav" id="4_iacmt"]
+[ext_resource type="Texture2D" uid="uid://bexst5sff3hj6" path="res://Assets/Final Assets/Background_V01.png" id="4_maf8m"]
 [ext_resource type="AudioStream" uid="uid://cjxx3k783m1mp" path="res://Assets/SFX/powerDown_000.ogg" id="5_iacmt"]
 [ext_resource type="AudioStream" uid="uid://b2q0g5he7dkr7" path="res://Assets/Music/Loop Jam Actually Fcking Working.mp3" id="6_6ev3c"]
 
@@ -216,6 +217,10 @@ position = Vector2(160, 290)
 [node name="Button49" parent="." instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1760, 470)
+
+[node name="BG" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("4_maf8m")
 
 [node name="SFXCorrectPress" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_iacmt")
