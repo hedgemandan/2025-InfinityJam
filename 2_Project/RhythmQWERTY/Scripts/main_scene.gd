@@ -72,9 +72,9 @@ func _ready():
 	start_newbuttonspawn_timer()
 	start_buttoncharge_timer()
 	Music.play()
-	for n in buttons_data.length:
-		pass
-
+	#for n in buttons_data.size():
+		##buttonbuttons_data
+		#pass
 
 ## Popup Menu Function
 func _input(event):

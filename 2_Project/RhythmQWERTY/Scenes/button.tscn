@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bq7kgpf0ql76u"]
+[gd_scene load_steps=10 format=3 uid="uid://bq7kgpf0ql76u"]
 
 [ext_resource type="Script" uid="uid://dclswfcwv33jp" path="res://Scripts/button.gd" id="1_0kpiu"]
 [ext_resource type="Texture2D" uid="uid://d37w0eyc2xhcb" path="res://Assets/Final Assets/OutlineCurve_V01.png" id="2_edukx"]
@@ -1391,19 +1391,6 @@ _data = {
 &"RESET": SubResource("Animation_svtet")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_edukx"]
-animation = &"Grow"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_q5xx2"]
-
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_svtet"]
-nodes/Animation/node = SubResource("AnimationNodeAnimation_edukx")
-nodes/Animation/position = Vector2(400, 60)
-nodes/Blend2/node = SubResource("AnimationNodeBlend2_q5xx2")
-nodes/Blend2/position = Vector2(640, 180)
-nodes/output/position = Vector2(940, 140)
-node_connections = [&"output", 0, &"Animation"]
-
 [node name="Button" type="Node2D"]
 script = ExtResource("1_0kpiu")
 
@@ -1575,8 +1562,3 @@ texture = ExtResource("5_c4mwi")
 libraries = {
 &"": SubResource("AnimationLibrary_c4mwi")
 }
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource("AnimationNodeBlendTree_svtet")
-anim_player = NodePath("../AnimationPlayer")
-parameters/Blend2/blend_amount = 0
