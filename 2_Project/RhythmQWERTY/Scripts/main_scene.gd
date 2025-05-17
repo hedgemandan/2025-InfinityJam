@@ -112,6 +112,7 @@ func check_buttons(key_pressed):
 					global.clickablebuttons.erase(button_node)
 					global.correcthits += 1
 					correct_clicks.text = str(global.correcthits)
+					button_node.empty_anim()
 				else:
 					SFXIncorrectPress.play()
 					start_death_timer()
@@ -190,30 +191,30 @@ func _on_timer_timeoutBC():
 			for n in spawnlimit:
 				var holdingvar1 = "Button" + str(randi_range(1, global.numberoffbuttonsvisible -1)) #concatenate
 				var random_button = buttons_data[holdingvar1]["Node"]
-				random_button.grow_anim()
 				if random_button in global.clickablebuttons:
 					pass	#Do not double up charging the same button!
 				else:
 					global.clickablebuttons.append(random_button)
+					random_button.grow_anim()
 		## Paired buttons?
 		elif global.gamestep >= 12: #enable doubles
 			var spawnlimitadj = 2
 			for n in spawnlimitadj:
 				var holdingvar2 = "Button" + str(randi_range(1, global.numberoffbuttonsvisible -1)) #concatenate
 				var random_button = buttons_data[holdingvar2]["Node"]
-				random_button.grow_anim()
 				if random_button in global.clickablebuttons:
 					pass	#Do not double up charging the same button!
 				else:
 					global.clickablebuttons.append(random_button)
+					random_button.grow_anim()
 		## This immediate paragraph allows only one button to charging at a time prior to gamestep 10
 		else:
 			var random_button = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
-			random_button.grow_anim()
 			if random_button in global.clickablebuttons:
 				pass	#Do not double up charging the same button!
 			else:
 				global.clickablebuttons.append(random_button)
+				random_button.grow_anim()
 	else:
 		pass
 
