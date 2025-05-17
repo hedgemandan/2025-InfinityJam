@@ -149,7 +149,7 @@ func toggle_popup():
 ## timer for adding new buttons every 5 seconds and incrementing the gamestate by 1
 func start_newbuttonspawn_timer():
 	var timer = Timer.new()
-	timer.wait_time = 2
+	timer.wait_time = 5
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeoutNB"))
 	add_child(timer)
@@ -164,7 +164,7 @@ func _on_timer_timeoutNB():
 		buttons_data[gamestepstring]["Node"].show()
 		#button_array[global.gamestep + 2].show()
 		global.numberoffbuttonsvisible += 1
-		keys_unlocked.text = str(global.numberoffbuttonsvisible)
+		keys_unlocked.text = str(global.numberoffbuttonsvisible - 1)
 		global.gamestep += 1
 
 
@@ -173,7 +173,7 @@ func _on_timer_timeoutNB():
 ## timer for making a random button go green from the selection of buttons which are visible
 func start_buttoncharge_timer():
 	var timer = Timer.new()
-	timer.wait_time = 1 - (global.gamestep)*0.1
+	timer.wait_time = 3 - (global.gamestep)*0.1
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeoutBC"))
 	add_child(timer)
