@@ -4,7 +4,7 @@ Fade in buttons
 Shake & explode animation
 End game screen
 Controls for menu implemented
-
+Add letters to keys
 
 
 Stretch:
