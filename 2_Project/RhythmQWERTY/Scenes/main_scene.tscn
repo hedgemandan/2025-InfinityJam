@@ -12,7 +12,6 @@
 script = ExtResource("1_6l7je")
 
 [node name="BG" type="Sprite2D" parent="."]
-visible = false
 position = Vector2(960, 540)
 texture = ExtResource("4_maf8m")
 
@@ -21,197 +20,199 @@ visible = false
 position = Vector2(960, 540)
 texture = ExtResource("2_jv6wh")
 
-[node name="Button" parent="." instance=ExtResource("1_52fb6")]
+[node name="AllButtons" type="Node" parent="."]
+
+[node name="Button" parent="AllButtons" instance=ExtResource("1_52fb6")]
 position = Vector2(885, 540)
 
-[node name="Button2" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button2" parent="AllButtons" instance=ExtResource("1_52fb6")]
 position = Vector2(1010, 540)
 
-[node name="Button3" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button3" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(760, 540)
 
-[node name="Button4" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button4" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1135, 540)
 
-[node name="Button5" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button5" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1035, 665)
 
-[node name="Button6" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button6" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(960, 415)
 
-[node name="Button7" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button7" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(910, 665)
 
-[node name="Button8" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button8" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(835, 415)
 
-[node name="Button9" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button9" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1085, 415)
 
-[node name="Button10" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button10" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(785, 665)
 
-[node name="Button11" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button11" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1160, 665)
 
-[node name="Button12" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button12" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(710, 415)
 
-[node name="Button13" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button13" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(635, 540)
 
-[node name="Button14" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button14" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1260, 540)
 
-[node name="Button15" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button15" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1210, 415)
 
-[node name="Button16" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button16" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(660, 665)
 
-[node name="Button17" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button17" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1285, 665)
 
-[node name="Button18" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button18" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(585, 415)
 
-[node name="Button19" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button19" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(510, 540)
 
-[node name="Button20" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button20" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(535, 665)
 
-[node name="Button21" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button21" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1335, 415)
 
-[node name="Button22" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button22" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1385, 540)
 
-[node name="Button23" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button23" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(910, 290)
 
-[node name="Button24" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button24" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(785, 290)
 
-[node name="Button25" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button25" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1035, 290)
 
-[node name="Button26" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button26" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1160, 290)
 
-[node name="Button27" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button27" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1410, 665)
 
-[node name="Button28" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button28" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(832, 790)
 
-[node name="Button29" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button29" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(660, 290)
 
-[node name="Button30" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button30" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1460, 415)
 
-[node name="Button31" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button31" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1510, 540)
 
-[node name="Button32" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button32" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(460, 415)
 
-[node name="Button33" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button33" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(385, 540)
 
-[node name="Button34" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button34" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1285, 290)
 
-[node name="Button35" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button35" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(410, 665)
 
-[node name="Button36" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button36" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(535, 290)
 
-[node name="Button37" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button37" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(410, 290)
 
-[node name="Button38" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button38" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(335, 415)
 
-[node name="Button39" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button39" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(260, 540)
 
-[node name="Button40" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button40" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(285, 665)
 
-[node name="Button41" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button41" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1410, 290)
 
-[node name="Button42" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button42" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1535, 290)
 
-[node name="Button43" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button43" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1585, 415)
 
-[node name="Button44" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button44" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1635, 540)
 
-[node name="Button45" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button45" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(285, 290)
 
-[node name="Button46" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button46" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(210, 415)
 
-[node name="Button47" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button47" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(160, 665)
 
-[node name="Button48" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button48" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(160, 290)
 
-[node name="Button49" parent="." instance=ExtResource("1_52fb6")]
+[node name="Button49" parent="AllButtons" instance=ExtResource("1_52fb6")]
 visible = false
 position = Vector2(1760, 470)
 

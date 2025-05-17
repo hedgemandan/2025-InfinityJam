@@ -5,8 +5,7 @@ var popup_instance = null
 var button = preload("res://Scenes/button.tscn")
 #var unpacked_instance = button.instantiate()
 var button_instance = null
-@onready var marker = $Marker2D
-@onready var button_array = [$Button, $Button2, $Button3, $Button4, $Button5, $Button6, $Button7, $Button8, $Button9, $Button10, $Button11, $Button12, $Button13, $Button14, $Button15, $Button16, $Button17, $Button18, $Button19, $Button20, $Button21, $Button22, $Button23, $Button24, $Button25, $Button26, $Button27, $Button28, $Button29, $Button30, $Button31, $Button32, $Button33, $Button34, $Button35, $Button36, $Button37, $Button38, $Button39, $Button40, $Button41, $Button42, $Button43, $Button44, $Button45, $Button46, $Button47, $Button48, $Button49]
+@onready var button_array = [$AllButtons/Button, $AllButtons/Button2, $AllButtons/Button3, $AllButtons/Button4, $AllButtons/Button5, $AllButtons/Button6, $AllButtons/Button7, $AllButtons/Button8, $AllButtons/Button9, $AllButtons/Button10, $AllButtons/Button11, $AllButtons/Button12, $AllButtons/Button13, $AllButtons/Button14, $AllButtons/Button15, $AllButtons/Button16, $AllButtons/Button17, $AllButtons/Button18, $AllButtons/Button19, $AllButtons/Button20, $AllButtons/Button21, $AllButtons/Button22, $AllButtons/Button23, $AllButtons/Button24, $AllButtons/Button25, $AllButtons/Button26, $AllButtons/Button27, $AllButtons/Button28, $AllButtons/Button29, $AllButtons/Button30, $AllButtons/Button31, $AllButtons/Button32, $AllButtons/Button33, $AllButtons/Button34, $AllButtons/Button35, $AllButtons/Button36, $AllButtons/Button37, $AllButtons/Button38, $AllButtons/Button39, $AllButtons/Button40, $AllButtons/Button41, $AllButtons/Button42, $AllButtons/Button43, $AllButtons/Button44, $AllButtons/Button45, $AllButtons/Button46, $AllButtons/Button47, $AllButtons/Button48, $AllButtons/Button49]
 var bufferOGcolour
 @onready var SFXCorrectPress = $SFXCorrectPress
 @onready var SFXIncorrectPress = $SFXIncorrectPress
@@ -73,8 +72,17 @@ func _ready():
 	start_buttoncharge_timer()
 	Music.play()
 	#for n in buttons_data.size():
-		##buttonbuttons_data
+		#$AllButtons/Button.modulate = 
+		#print("I have interated this many times:", n)
 		#pass
+	for button_name in buttons_data.keys():
+		var button_node = $AllButtons.get_node(button_name)
+		if button_node:
+			button_node.modulate = buttons_data[button_name]["Color"]
+			print("Applied color to:", button_name)
+
+
+
 
 ## Popup Menu Function
 func _input(event):
@@ -93,11 +101,11 @@ func _input(event):
 func check_buttons(key_pressed):
 	for button_name in buttons_data.keys():
 		if buttons_data[button_name]["Letter"] == key_pressed:
-			var button_node = get_node(button_name)
+			var button_node = get_node("AllButtons/" + button_name)
 			if button_node.visible:
 				button_node.scale = Vector2(1, 1)
-				if bufferOGcolour:
-					button_node.modulate = bufferOGcolour
+				#if bufferOGcolour:
+					#button_node.modulate = bufferOGcolour
 				if button_node in global.clickablebuttons:
 					SFXCorrectPress.play()
 					global.clickablebuttons.erase(button_node)
@@ -140,7 +148,7 @@ func toggle_popup():
 ## timer for adding new buttons every 5 seconds and incrementing the gamestate by 1
 func start_newbuttonspawn_timer():
 	var timer = Timer.new()
-	timer.wait_time = 5
+	timer.wait_time = 0.2
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeoutNB"))
 	add_child(timer)
@@ -161,7 +169,7 @@ func _on_timer_timeoutNB():
 ## timer for making a random button go green from the selection of buttons which are visible
 func start_buttoncharge_timer():
 	var timer = Timer.new()
-	timer.wait_time = 3 - (global.gamestep)*0.1
+	timer.wait_time = 0.5 - (global.gamestep)*0.1
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeoutBC"))
 	add_child(timer)
@@ -202,6 +210,6 @@ func _on_timer_timeoutBC():
 	
 func tidy(random_node):
 	global.clickablebuttons.append(random_node)
-	bufferOGcolour = random_node.modulate
-	random_node.modulate = Color(1,1,0,1)
+	#bufferOGcolour = random_node.modulate
+	#random_node.modulate = Color(1,1,0,1)
 	return
