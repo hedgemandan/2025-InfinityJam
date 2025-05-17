@@ -58,11 +58,11 @@ var buttons_data = {
 	"Button40":		{"Letter":"Z","Row":4,"Column":2},
 	"Button41":		{"Letter":"Minus","Row":1,"Column":12},
 	"Button42":		{"Letter":"Equal","Row":1,"Column":13},
-	"Button43":		{"Letter":"BracketLeft","Row":2,"Column":13},
+	"Button43":		{"Letter":"BracketRight","Row":2,"Column":13},
 	"Button44":		{"Letter":"NumberSign","Row":3,"Column":13},
 	"Button45":		{"Letter":"2","Row":1,"Column":3},
 	"Button46":		{"Letter":"Q","Row":2,"Column":2},
-	"Button47":		{"Letter":"Backslash","Row":4,"Column":1},
+	"Button47":		{"Letter":"BackSlash","Row":4,"Column":1},
 	"Button48":		{"Letter":"1","Row":1,"Column":2},
 	"Button49":		{"Letter":"Enter","Row":2,"Column":14}}
 
