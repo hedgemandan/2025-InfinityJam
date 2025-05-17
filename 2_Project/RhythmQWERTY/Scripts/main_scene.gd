@@ -67,6 +67,7 @@ var buttons_data = {
 	"Button48":		{"Letter":"1","Row":1,"Column":2,"Color":Color(1, 1, 0,1)},#
 	"Button49":		{"Letter":"Enter","Row":2,"Column":14,"Color":Color(1, 0.831, 0,1)}}#
 
+
 func _ready():
 	start_newbuttonspawn_timer()
 	start_buttoncharge_timer()
@@ -148,7 +149,7 @@ func toggle_popup():
 ## timer for adding new buttons every 5 seconds and incrementing the gamestate by 1
 func start_newbuttonspawn_timer():
 	var timer = Timer.new()
-	timer.wait_time = 0.2
+	timer.wait_time = 3
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeoutNB"))
 	add_child(timer)
@@ -169,7 +170,7 @@ func _on_timer_timeoutNB():
 ## timer for making a random button go green from the selection of buttons which are visible
 func start_buttoncharge_timer():
 	var timer = Timer.new()
-	timer.wait_time = 0.5 - (global.gamestep)*0.1
+	timer.wait_time = 2 - (global.gamestep)*0.1
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeoutBC"))
 	add_child(timer)
@@ -181,35 +182,62 @@ func _on_timer_timeoutBC():
 		#if/conditions like gamestate are met then highlight more than 1 random button. Then three adjacent horizontal. Then 2 adjacent vertical. 
 
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 10
-		if global.gamestep >= 10: #enable conjoined doubles
+		if global.gamestep >= 12: #enable doubles
 			var spawnlimit = 2
 			for n in spawnlimit:
-				var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
-				random_node.grow_anim()
-				if random_node in global.clickablebuttons:
+				var random_button = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
+				random_button.grow_anim()
+				if random_button in global.clickablebuttons:
 					pass	#Do not double up charging the same button!
 				else:
-				#line here to reference one adjacent horizontal to random_node if available
-					print("number of buttons visible:", global.numberoffbuttonsvisible)
-					#random_node.scale = Vector2(1, 1)
-					tidy(random_node)
-					
-		## This immediate paragraph allows only one button to charging at a time prior to gamestep 10
-		else:
-			var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
-			random_node.grow_anim()
-			if random_node in global.clickablebuttons:
+					global.clickablebuttons.append(random_button)
+		## Paired buttons?
+		elif global.gamestep >= 8:
+			var random_button = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
+			for button_name in buttons_data.keys():
+			var button_node = $AllButtons.get_node(button_name)
+			
+			
+			
+			var temporaryrow = null
+			var temporarycolumn = null
+			var adjacent_button = null
+			for button_name in buttons_data:
+				random_button = $AllButtons.get_node(button_name)
+				if button_name.name == random_button:
+					temporaryrow = buttons_data[button_name]["Row"]
+					temporarycolumn = buttons_data[button_name]["Column"]
+			print("this is the row of the random button:", temporaryrow)
+			print("this is the column of the random button:", temporarycolumn)
+			# check random_button, get random_button name, and row
+			# check buttons_data for nodes with same row number and only +/- 1 column number difference
+			# pick one of two nodes and charge that one as well
+			#
+	#for button_name in buttons_data.keys():
+		#var button_node = $AllButtons.get_node(button_name)
+		#if button_node:
+			#button_node.modulate = buttons_data[button_name]["Color"]
+			#print("Applied color to:", button_name)
+			
+			
+			
+			random_button.grow_anim()
+			if random_button in global.clickablebuttons:
 				pass	#Do not double up charging the same button!
 			else:
-				
-				print("number of buttons visible:", global.numberoffbuttonsvisible)
-				#random_node.scale = Vector2(1, 1)
-				tidy(random_node)
+				global.clickablebuttons.append(random_button)
+		## This immediate paragraph allows only one button to charging at a time prior to gamestep 10
+		else:
+			var random_button = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
+			random_button.grow_anim()
+			if random_button in global.clickablebuttons:
+				pass	#Do not double up charging the same button!
+			else:
+				global.clickablebuttons.append(random_button)
 	else:
 		pass
-	
-func tidy(random_node):
-	global.clickablebuttons.append(random_node)
-	#bufferOGcolour = random_node.modulate
-	#random_node.modulate = Color(1,1,0,1)
-	return
+
+
+#tidy(random_button)
+#func tidy(random_button):
+	#return
