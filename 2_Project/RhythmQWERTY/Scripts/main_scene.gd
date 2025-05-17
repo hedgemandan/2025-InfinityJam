@@ -150,7 +150,7 @@ func toggle_popup():
 ## timer for adding new buttons every 5 seconds and incrementing the gamestate by 1
 func start_newbuttonspawn_timer():
 	var timer = Timer.new()
-	timer.wait_time = 5
+	timer.wait_time = 0.5
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeoutNB"))
 	add_child(timer)
@@ -201,6 +201,7 @@ func _on_timer_timeoutBC():
 			else:
 				global.clickablebuttons.append(random_button)
 				random_button.grow_anim()
+				#start_anim_timer(random_button)
 	## Paired buttons?
 	#elif global.gamestep >= 6: #enable doubles
 		#var spawnlimitadj = 2
@@ -227,6 +228,22 @@ func _on_timer_timeoutBC():
 
 
 
+#func start_anim_timer(random_button):
+	#var timer = Timer.new()
+	#timer.wait_time = 3
+	#timer.one_shot = true
+	#timer.connect("timeout", Callable(self, "_on_timer_timeoutSA"))
+	#add_child(timer)
+	#timer.start()
+	#global.lukesvariable = random_button
+	#return
+#
+#func _on_timer_timeoutSA():
+	#if global.lukesvariable.any(func(item): return item in global.clickablebuttons):
+		#queue_free()
+		#
+		
+		
 #tidy(random_button)
 #func tidy(random_button):
 	#return
