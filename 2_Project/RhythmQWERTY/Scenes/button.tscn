@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bq7kgpf0ql76u"]
+[gd_scene load_steps=12 format=3 uid="uid://bq7kgpf0ql76u"]
 
 [ext_resource type="Script" uid="uid://dclswfcwv33jp" path="res://Scripts/button.gd" id="1_0kpiu"]
 [ext_resource type="Texture2D" uid="uid://d37w0eyc2xhcb" path="res://Assets/Final Assets/OutlineCurve_V01.png" id="2_edukx"]
@@ -415,6 +415,18 @@ tracks/33/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, -49)]
+}
+tracks/34/type = "value"
+tracks/34/imported = false
+tracks/34/enabled = true
+tracks/34/path = NodePath("Skeleton2D/Outline:modulate")
+tracks/34/interp = 1
+tracks/34/loop_wrap = true
+tracks/34/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_edukx"]
@@ -876,6 +888,18 @@ tracks/37/keys = {
 "update": 0,
 "values": [1.5708]
 }
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("Skeleton2D/Outline:modulate")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_c4mwi"]
 resource_name = "Grow_Menu"
@@ -1334,6 +1358,30 @@ tracks/37/keys = {
 "transitions": PackedFloat32Array(0.406126),
 "update": 0,
 "values": [1.5708]
+}
+tracks/38/type = "value"
+tracks/38/imported = false
+tracks/38/enabled = true
+tracks/38/path = NodePath("Skeleton2D/Outline:modulate")
+tracks/38/interp = 1
+tracks/38/loop_wrap = true
+tracks/38/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/39/type = "value"
+tracks/39/imported = false
+tracks/39/enabled = true
+tracks/39/path = NodePath("Skeleton2D:modulate")
+tracks/39/interp = 1
+tracks/39/loop_wrap = true
+tracks/39/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_svtet"]
@@ -1842,9 +1890,50 @@ tracks/41/keys = {
 "update": 0,
 "values": [1.5708]
 }
+tracks/42/type = "value"
+tracks/42/imported = false
+tracks/42/enabled = true
+tracks/42/path = NodePath("Skeleton2D/Outline:modulate")
+tracks/42/interp = 1
+tracks/42/loop_wrap = true
+tracks/42/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/43/type = "value"
+tracks/43/imported = false
+tracks/43/enabled = true
+tracks/43/path = NodePath("Skeleton2D:modulate")
+tracks/43/interp = 1
+tracks/43/loop_wrap = true
+tracks/43/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ur6nl"]
+resource_name = "Appear"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Outline:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1.75, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c4mwi"]
 _data = {
+&"Appear": SubResource("Animation_ur6nl"),
 &"Empty": SubResource("Animation_nrk2b"),
 &"Grow": SubResource("Animation_edukx"),
 &"Grow_Menu": SubResource("Animation_c4mwi"),
@@ -1857,6 +1946,7 @@ script = ExtResource("1_0kpiu")
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
 [node name="Outline" type="Bone2D" parent="Skeleton2D"]
+modulate = Color(1, 1, 1, 0)
 rest = Transform2D(1, 0, 0, 1, 0, 0)
 auto_calculate_length_and_angle = false
 length = 51.6188
@@ -1876,7 +1966,7 @@ texture = ExtResource("2_edukx")
 [node name="Circle1" type="Bone2D" parent="Skeleton2D/Outline/OutlineCurve1"]
 visible = false
 position = Vector2(36.5, 36.5)
-rest = Transform2D(1, 0, 0, 1, 11.5, 11.5)
+rest = Transform2D(1, 0, 0, 1, 36.5, 36.5)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0
@@ -1897,7 +1987,7 @@ texture = ExtResource("2_edukx")
 [node name="Circle2" type="Bone2D" parent="Skeleton2D/Outline/OutlineCurve2"]
 visible = false
 position = Vector2(-36.5, 36.5)
-rest = Transform2D(1, 0, 0, 1, -11.5, 11.5)
+rest = Transform2D(1, 0, 0, 1, -36.5, 36.5)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0
@@ -1919,7 +2009,7 @@ texture = ExtResource("2_edukx")
 [node name="Circle3" type="Bone2D" parent="Skeleton2D/Outline/OutlineCurve3"]
 visible = false
 position = Vector2(36.5, -36.5)
-rest = Transform2D(1, 0, 0, 1, 11.5, -11.5)
+rest = Transform2D(1, 0, 0, 1, 36.5, -36.5)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0
@@ -1941,7 +2031,7 @@ texture = ExtResource("2_edukx")
 [node name="Circle4" type="Bone2D" parent="Skeleton2D/Outline/OutlineCurve4"]
 visible = false
 position = Vector2(-36.5, -36.5)
-rest = Transform2D(1, 0, 0, 1, -11.5, -11.5)
+rest = Transform2D(1, 0, 0, 1, -36.5, -36.5)
 auto_calculate_length_and_angle = false
 length = 16.0
 bone_angle = 0.0

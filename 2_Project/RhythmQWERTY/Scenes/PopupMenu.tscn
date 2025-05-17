@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="5_dfv23"]
 
 [node name="PopupMenu" type="Control"]
+process_mode = 3
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,7 +18,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fvsca")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -31,48 +33,48 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_v67u6")
 
-[node name="Button1" parent="TextureRect" instance=ExtResource("3_v67u6")]
+[node name="Button1" parent="Background" instance=ExtResource("3_v67u6")]
 modulate = Color(1, 1, 0, 1)
 self_modulate = Color(1, 1, 0, 1)
 position = Vector2(397, 540)
 
-[node name="Button2" parent="TextureRect" instance=ExtResource("3_v67u6")]
+[node name="Button2" parent="Background" instance=ExtResource("3_v67u6")]
 modulate = Color(1, 0.831373, 0, 1)
 position = Vector2(523, 540)
 
-[node name="Button3" parent="TextureRect" instance=ExtResource("3_v67u6")]
+[node name="Button3" parent="Background" instance=ExtResource("3_v67u6")]
 modulate = Color(1, 0.592157, 0.0509804, 1)
 position = Vector2(647, 540)
 
-[node name="Button4" parent="TextureRect" instance=ExtResource("3_v67u6")]
+[node name="Button4" parent="Background" instance=ExtResource("3_v67u6")]
 modulate = Color(1, 0.415686, 0.301961, 1)
 position = Vector2(773, 540)
 
-[node name="Button5" parent="TextureRect" instance=ExtResource("3_v67u6")]
+[node name="Button5" parent="Background" instance=ExtResource("3_v67u6")]
 modulate = Color(1, 0.301961, 0.552941, 1)
 position = Vector2(897, 540)
 
-[node name="Button6" parent="TextureRect" instance=ExtResource("3_v67u6")]
+[node name="Button6" parent="Background" instance=ExtResource("3_v67u6")]
 modulate = Color(1, 0.2, 0.811765, 1)
 position = Vector2(1023, 540)
 
-[node name="Button7" parent="TextureRect" instance=ExtResource("3_v67u6")]
+[node name="Button7" parent="Background" instance=ExtResource("3_v67u6")]
 modulate = Color(1, 0.152941, 0.882353, 1)
 position = Vector2(1147, 540)
 
-[node name="Button8" parent="TextureRect" instance=ExtResource("3_v67u6")]
+[node name="Button8" parent="Background" instance=ExtResource("3_v67u6")]
 modulate = Color(1, 0.152941, 0.8, 1)
 position = Vector2(1273, 540)
 
-[node name="Button9" parent="TextureRect" instance=ExtResource("3_v67u6")]
+[node name="Button9" parent="Background" instance=ExtResource("3_v67u6")]
 modulate = Color(1, 0.25098, 0.698039, 1)
 position = Vector2(1397, 540)
 
-[node name="ButtonMute" parent="TextureRect" instance=ExtResource("3_v67u6")]
+[node name="Button0" parent="Background" instance=ExtResource("3_v67u6")]
 modulate = Color(1, 0.4, 0.513726, 1)
 position = Vector2(1523, 540)
 
-[node name="Label" type="Label" parent="TextureRect"]
+[node name="Label" type="Label" parent="Background"]
 layout_mode = 0
 offset_left = 365.0
 offset_top = 493.0
@@ -82,7 +84,7 @@ theme_override_fonts/font = ExtResource("4_1i0dd")
 theme_override_font_sizes/font_size = 48
 text = "1"
 
-[node name="Label2" type="Label" parent="TextureRect"]
+[node name="Label2" type="Label" parent="Background"]
 layout_mode = 0
 offset_left = 491.0
 offset_top = 493.0
@@ -92,7 +94,7 @@ theme_override_fonts/font = ExtResource("4_1i0dd")
 theme_override_font_sizes/font_size = 48
 text = "2"
 
-[node name="Label3" type="Label" parent="TextureRect"]
+[node name="Label3" type="Label" parent="Background"]
 layout_mode = 0
 offset_left = 615.0
 offset_top = 493.0
@@ -102,7 +104,7 @@ theme_override_fonts/font = ExtResource("4_1i0dd")
 theme_override_font_sizes/font_size = 48
 text = "3"
 
-[node name="Label4" type="Label" parent="TextureRect"]
+[node name="Label4" type="Label" parent="Background"]
 layout_mode = 0
 offset_left = 741.0
 offset_top = 493.0
@@ -112,7 +114,7 @@ theme_override_fonts/font = ExtResource("4_1i0dd")
 theme_override_font_sizes/font_size = 48
 text = "4"
 
-[node name="Label5" type="Label" parent="TextureRect"]
+[node name="Label5" type="Label" parent="Background"]
 layout_mode = 0
 offset_left = 865.0
 offset_top = 493.0
@@ -122,7 +124,7 @@ theme_override_fonts/font = ExtResource("4_1i0dd")
 theme_override_font_sizes/font_size = 48
 text = "5"
 
-[node name="Label6" type="Label" parent="TextureRect"]
+[node name="Label6" type="Label" parent="Background"]
 layout_mode = 0
 offset_left = 991.0
 offset_top = 493.0
@@ -132,7 +134,7 @@ theme_override_fonts/font = ExtResource("4_1i0dd")
 theme_override_font_sizes/font_size = 48
 text = "6"
 
-[node name="Label7" type="Label" parent="TextureRect"]
+[node name="Label7" type="Label" parent="Background"]
 layout_mode = 0
 offset_left = 1115.0
 offset_top = 493.0
@@ -142,7 +144,7 @@ theme_override_fonts/font = ExtResource("4_1i0dd")
 theme_override_font_sizes/font_size = 48
 text = "7"
 
-[node name="Label8" type="Label" parent="TextureRect"]
+[node name="Label8" type="Label" parent="Background"]
 layout_mode = 0
 offset_left = 1241.0
 offset_top = 493.0
@@ -152,7 +154,7 @@ theme_override_fonts/font = ExtResource("4_1i0dd")
 theme_override_font_sizes/font_size = 48
 text = "8"
 
-[node name="Label9" type="Label" parent="TextureRect"]
+[node name="Label9" type="Label" parent="Background"]
 layout_mode = 0
 offset_left = 1365.0
 offset_top = 493.0
@@ -162,7 +164,7 @@ theme_override_fonts/font = ExtResource("4_1i0dd")
 theme_override_font_sizes/font_size = 48
 text = "9"
 
-[node name="MuteIcon" type="TextureRect" parent="TextureRect"]
+[node name="MuteIcon" type="TextureRect" parent="Background"]
 layout_mode = 0
 offset_left = 1483.0
 offset_top = 515.0
@@ -170,7 +172,7 @@ offset_right = 1563.0
 offset_bottom = 567.0
 texture = ExtResource("5_1i0dd")
 
-[node name="Continue" type="Button" parent="TextureRect"]
+[node name="Continue" type="Button" parent="Background"]
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 offset_left = 597.0
@@ -250,4 +252,4 @@ theme_override_font_sizes/font_size = 96
 text = "CL/NK"
 horizontal_alignment = 2
 
-[connection signal="pressed" from="TextureRect/Continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Background/Continue" to="." method="_on_continue_pressed"]

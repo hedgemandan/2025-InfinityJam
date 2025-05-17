@@ -5,6 +5,7 @@ var numberoffbuttonsvisible = 2 #starts at 2 because 2 buttons start visible fro
 var clickablebuttons = []
 var correcthits = 0
 var incorrecthits = 0
+var volume = 6
 #var spawnrate = 0
 var lukesvariable = []
 

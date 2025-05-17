@@ -69,6 +69,8 @@ var bufferOGcolour
 
 
 func _ready():
+	buttons_data["Button1"]["Node"].empty_anim() #Makes starting button appear visible
+	buttons_data["Button2"]["Node"].empty_anim() #Makes starting button appear visible
 	start_newbuttonspawn_timer()
 	start_buttoncharge_timer()
 	Music.play()
@@ -112,7 +114,7 @@ func check_buttons(key_pressed):
 					global.clickablebuttons.erase(button_node)
 					global.correcthits += 1
 					correct_clicks.text = str(global.correcthits)
-					button_node.empty_anim()
+					button_node.shrink_anim()
 				else:
 					SFXIncorrectPress.play()
 					start_death_timer()
@@ -138,9 +140,12 @@ func _on_timer_timeoutdeath():
 ## Popup Menu function Pt. 2
 func toggle_popup():
 	if popup_instance:
-		popup_instance.queue_free()
-		popup_instance = null
+		pass
+		#get_tree().paused = false
+		#popup_instance.queue_free()
+		#popup_instance = null
 	else:
+		get_tree().paused = true
 		popup_instance = popup_menu.instantiate()
 		add_child(popup_instance)
 		popup_instance.global_position = get_viewport_rect().size / 2 - popup_instance.size / 2
@@ -160,10 +165,9 @@ func _on_timer_timeoutNB():
 	if global.gamestep >= 47:
 		pass
 	else: 
-		#var adjustedgamestep = (global.gamestep + 2)
-		var gamestepstring = "Button" + str(global.gamestep + 2) #concatenate
+		var gamestepstring = "Button" + str(global.gamestep + 3) #concatenate. Buttons 1 + 2 are already showing
 		buttons_data[gamestepstring]["Node"].show()
-		#button_array[global.gamestep + 2].show()
+		buttons_data[gamestepstring]["Node"].appear_anim()
 		global.numberoffbuttonsvisible += 1
 		keys_unlocked.text = str(global.numberoffbuttonsvisible - 1)
 		global.gamestep += 1
