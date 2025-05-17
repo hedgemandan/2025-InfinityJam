@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bq7kgpf0ql76u"]
+[gd_scene load_steps=13 format=3 uid="uid://bq7kgpf0ql76u"]
 
 [ext_resource type="Script" uid="uid://dclswfcwv33jp" path="res://Scripts/button.gd" id="1_0kpiu"]
 [ext_resource type="Texture2D" uid="uid://d37w0eyc2xhcb" path="res://Assets/Final Assets/OutlineCurve_V01.png" id="2_edukx"]
@@ -427,10 +427,10 @@ tracks/0/path = NodePath("Skeleton2D/Outline/OutlineCurve1/Circle1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 0.406126),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 0.406126),
 "update": 0,
-"values": [Vector2(36.5, 36.5), Vector2(11.5, 11.5)]
+"values": [Vector2(36.5, 36.5), Vector2(36.5, 36.5), Vector2(11.5, 11.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -439,10 +439,10 @@ tracks/1/path = NodePath("Skeleton2D/Outline/OutlineCurve2/Circle2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 0.406126),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 0.406126),
 "update": 0,
-"values": [Vector2(-36.5, 36.5), Vector2(-11.5, 11.5)]
+"values": [Vector2(-36.5, 36.5), Vector2(-36.5, 36.5), Vector2(-11.5, 11.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -451,10 +451,10 @@ tracks/2/path = NodePath("Skeleton2D/Outline/OutlineCurve3/Circle3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 0.406126),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 0.406126),
 "update": 0,
-"values": [Vector2(36.5, -36.5), Vector2(11.5, -11.5)]
+"values": [Vector2(36.5, -36.5), Vector2(36.5, -36.5), Vector2(11.5, -11.5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -463,10 +463,10 @@ tracks/3/path = NodePath("Skeleton2D/Outline/OutlineCurve4/Circle4:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(1, 2),
-"transitions": PackedFloat32Array(1, 0.406126),
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 0.406126),
 "update": 0,
-"values": [Vector2(-36.5, -36.5), Vector2(-11.5, -11.5)]
+"values": [Vector2(-36.5, -36.5), Vector2(-36.5, -36.5), Vector2(-11.5, -11.5)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -523,7 +523,7 @@ tracks/8/path = NodePath("Skeleton2D/Outline/OutlineCurve4/Circle4:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.99, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -535,7 +535,7 @@ tracks/9/path = NodePath("Skeleton2D/Outline/OutlineCurve3/Circle3:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.99, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -547,7 +547,7 @@ tracks/10/path = NodePath("Skeleton2D/Outline/OutlineCurve2/Circle2:visible")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0.99, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -716,7 +716,7 @@ tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
 "times": PackedFloat32Array(0, 1, 2),
-"transitions": PackedFloat32Array(1.7411, 1, 0.406126),
+"transitions": PackedFloat32Array(1, 1, 0.406126),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
 }
@@ -763,10 +763,10 @@ tracks/28/path = NodePath("Skeleton2D/Fill/RectangleV:scale")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
-"times": PackedFloat32Array(1, 2, 3),
-"transitions": PackedFloat32Array(1, 0.406126, 1),
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 0.406126, 1),
 "update": 0,
-"values": [Vector2(1e-05, 0.45), Vector2(1, 1), Vector2(1.5, 1.285)]
+"values": [Vector2(1e-05, 0.45), Vector2(1e-05, 0.45), Vector2(1, 1), Vector2(1.5, 1.285)]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
@@ -775,10 +775,10 @@ tracks/29/path = NodePath("Skeleton2D/Fill/RectangleH:scale")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
-"times": PackedFloat32Array(1, 2, 3),
-"transitions": PackedFloat32Array(1, 0.406126, 1),
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 0.406126, 1),
 "update": 0,
-"values": [Vector2(1e-05, 0.45), Vector2(1, 1), Vector2(1.5, 1.285)]
+"values": [Vector2(1e-05, 0.45), Vector2(1e-05, 0.45), Vector2(1, 1), Vector2(1.5, 1.285)]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
@@ -1391,6 +1391,19 @@ _data = {
 &"RESET": SubResource("Animation_svtet")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_edukx"]
+animation = &"Grow"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_q5xx2"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_svtet"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_edukx")
+nodes/Animation/position = Vector2(400, 60)
+nodes/Blend2/node = SubResource("AnimationNodeBlend2_q5xx2")
+nodes/Blend2/position = Vector2(640, 180)
+nodes/output/position = Vector2(940, 140)
+node_connections = [&"output", 0, &"Animation"]
+
 [node name="Button" type="Node2D"]
 script = ExtResource("1_0kpiu")
 
@@ -1562,3 +1575,8 @@ texture = ExtResource("5_c4mwi")
 libraries = {
 &"": SubResource("AnimationLibrary_c4mwi")
 }
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource("AnimationNodeBlendTree_svtet")
+anim_player = NodePath("../AnimationPlayer")
+parameters/Blend2/blend_amount = 0
