@@ -10,6 +10,7 @@ func grow_anim():
 	var anim_player = $AnimationPlayer
 	if self.visible:
 		anim_player.play("Grow")
+		
 		#var tween = create_tween()
 		#tween.tween_property(self, "modulate:a", 1.0, 1.5)
 		#flag = 0
