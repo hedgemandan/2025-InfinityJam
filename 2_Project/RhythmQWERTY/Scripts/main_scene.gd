@@ -10,6 +10,8 @@ var button_instance = null
 var bufferOGcolour
 @onready var SFXCorrectPress = $SFXCorrectPress
 @onready var SFXIncorrectPress = $SFXIncorrectPress
+@onready var Music = $Music
+
 
 @onready var correct_clicks = $"Correct Clicks"
 @onready var incorrect_clicks = $"Incorrect Clicks"
@@ -69,6 +71,7 @@ var buttons_data = {
 func _ready():
 	start_newbuttonspawn_timer()
 	start_buttoncharge_timer()
+	Music.play()
 
 
 ## Popup Menu Function
@@ -156,7 +159,7 @@ func _on_timer_timeoutNB():
 ## timer for making a random button go green from the selection of buttons which are visible
 func start_buttoncharge_timer():
 	var timer = Timer.new()
-	timer.wait_time = 2 - (global.gamestep)*0.05
+	timer.wait_time = 3 - (global.gamestep)*0.1
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeoutBC"))
 	add_child(timer)
@@ -172,27 +175,31 @@ func _on_timer_timeoutBC():
 			var spawnlimit = 2
 			for n in spawnlimit:
 				var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
+				random_node.grow_anim()
 				if random_node in global.clickablebuttons:
 					pass	#Do not double up charging the same button!
 				else:
 				#line here to reference one adjacent horizontal to random_node if available
 					print("number of buttons visible:", global.numberoffbuttonsvisible)
 					#random_node.scale = Vector2(1, 1)
-					global.clickablebuttons.append(random_node)
-					bufferOGcolour = random_node.modulate
-					random_node.modulate = Color(1,1,0,1) #TWEEN TIMER IN HERE for fade in? Or leave for animation
+					tidy(random_node)
+					
 		## This immediate paragraph allows only one button to charging at a time prior to gamestep 10
 		else:
 			var random_node = button_array[randi_range(0, global.numberoffbuttonsvisible -1)]
+			random_node.grow_anim()
 			if random_node in global.clickablebuttons:
 				pass	#Do not double up charging the same button!
 			else:
 				
 				print("number of buttons visible:", global.numberoffbuttonsvisible)
 				#random_node.scale = Vector2(1, 1)
-				global.clickablebuttons.append(random_node)
-				bufferOGcolour = random_node.modulate
-				random_node.modulate = Color(1,1,0,1) #TWEEN TIMER IN HERE for fade in? Or leave for animation
+				tidy(random_node)
 	else:
 		pass
 	
+func tidy(random_node):
+	global.clickablebuttons.append(random_node)
+	bufferOGcolour = random_node.modulate
+	random_node.modulate = Color(1,1,0,1)
+	return

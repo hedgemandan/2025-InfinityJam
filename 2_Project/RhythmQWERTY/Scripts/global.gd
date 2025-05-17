@@ -6,3 +6,6 @@ var clickablebuttons = []
 var correcthits = 0
 var incorrecthits = 0
 #var spawnrate = 0
+
+#func _physics_process(delta):
+	#button_node = get(button_node)
