@@ -14,6 +14,8 @@ var bufferOGcolour
 @onready var Music = $Music
 
 @onready var score: RichTextLabel = $Score
+@onready var game_title: Label = $"Game Title"
+
 @onready var keys_unlocked = $"Keys Unlocked"
 
 @onready var buttons_data = {
@@ -190,6 +192,8 @@ func game_over():
 		var button_node = buttons_data[button_name]["Node"]
 		if button_node:
 			button_node.modulate = Color(1,1,1,1)
+	game_title.add_theme_color_override("font_color", Color(1, 1, 1))
+	score.add_theme_color_override("font_color", Color(1, 1, 1))
 	end_screen_instance = end_screen.instantiate()
 	add_child(end_screen_instance)
 	end_screen_instance.end_game_screen()
@@ -232,7 +236,6 @@ func _on_timer_timeoutNB():
 			buttons_data[gamestepstring]["Node"].show()
 			buttons_data[gamestepstring]["Node"].appear_anim()
 			global.numberoffbuttonsvisible += 1
-			keys_unlocked.text = str(global.numberoffbuttonsvisible - 1)
 			global.gamestep += 1
 	else:
 		pass
