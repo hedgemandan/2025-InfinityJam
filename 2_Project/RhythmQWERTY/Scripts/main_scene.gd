@@ -2,6 +2,8 @@ extends Node2D
 
 var popup_menu = preload("res://Scenes/PopupMenu.tscn")
 var popup_instance = null
+var end_screen = preload("res://Scenes/end_screen.tscn")
+var end_screen_instance = null
 var button = preload("res://Scenes/button.tscn")
 #var unpacked_instance = button.instantiate()
 var button_instance = null
@@ -69,21 +71,20 @@ var bufferOGcolour
 
 
 func _ready():
-	buttons_data["Button1"]["Node"].empty_anim() #Makes starting button appear visible
-	buttons_data["Button2"]["Node"].empty_anim() #Makes starting button appear visible
-	start_newbuttonspawn_timer()
-	start_buttoncharge_timer()
-	Music.play()
+	game_setup()
 
 	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
 	for node in all_animated_nodes:
 		if node.has_signal("reached_max_extent"):
 			node.connect("reached_max_extent", self._on_reached_max_extent)
-		
-	#for n in buttons_data.size():
-		#$AllButtons/Button.modulate = 
-		#print("I have interated this many times:", n)
-		#pass
+
+func game_setup():
+	buttons_data["Button1"]["Node"].empty_anim() #Makes starting button appear visible
+	buttons_data["Button2"]["Node"].empty_anim() #Makes starting button appear visible
+	start_newbuttonspawn_timer()
+	start_buttoncharge_timer()
+	Music.play()
+	
 	for button_name in buttons_data.keys():
 		var button_node = buttons_data[button_name]["Node"]
 		if button_node:
@@ -92,15 +93,12 @@ func _ready():
 
 func _on_reached_max_extent():
 	print("Game Over!")
-	queue_free()
+	
 
 ## Popup Menu Function
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_ESCAPE:
 		toggle_popup()
-		
-		
-
 
 ## Key press detection event
 	if event is InputEventKey and event.is_pressed():
@@ -139,7 +137,14 @@ func start_death_timer():
 	timer.start()
 
 func _on_timer_timeoutdeath():
-	queue_free()
+	for button_name in buttons_data.keys():
+		var button_node = buttons_data[button_name]["Node"]
+		if button_node:
+			button_node.modulate = Color(1,1,1,1)
+	get_tree().paused = true
+	end_screen_instance = end_screen.instantiate()
+	add_child(end_screen_instance)
+	end_screen_instance.global_position = get_viewport_rect().size / 2 - end_screen_instance.size / 2
 	
 
 
