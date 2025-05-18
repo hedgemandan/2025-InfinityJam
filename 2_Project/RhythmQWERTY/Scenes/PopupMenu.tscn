@@ -230,7 +230,7 @@ theme_override_fonts/bold_font = ExtResource("4_1i0dd")
 theme_override_font_sizes/normal_font_size = 48
 theme_override_font_sizes/bold_font_size = 96
 bbcode_enabled = true
-text = "[b]High Score: 27 KEYS[/b] / 245 HITS"
+text = "High Score: 27 KEYS / 245 HITS"
 horizontal_alignment = 1
 
 [node name="Credits" type="Label" parent="."]
