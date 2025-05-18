@@ -1,22 +1,17 @@
 Key:
+Shift (second row from top, with R,T,Y,U etc in) a little bit to the right to line up with the row below; n.b. might need to shift row above as well as a result. [Art]
+Make border of ESC button white [Art]
 Upload and playtest browser version [Code]
+Add in SFX [Code]
+Highlight incorrect button press and/or the one that pops [Artimation]
 Shake & explode animation [Animation Code]
-Make space bar look like space bar in game [Art]
-Make enter bar look like space bar in game [Art]
 
 Ongoing:
 Adjust pace of game to taste [Code][Ongoing]
 
 Stretch:
-Highlight incorrect button press and/or the one that pops
 Add hardcore mode
-Add hardcore mode as unlockable option
-Try to line up first few charges or presses with music?
+	Add hardcore mode as unlockable option
 Move Keys over by 1? [Code]
-Contiguous pairings [Code]
-Enter button [Code]
-Fast forward [Code]
-Investigate lock out controls instead of game over [Code]
-Neaten up code [Code]
-Polish end game screen [Art]
 Make bubbly GIF of keys appearing (and disappearing?)
+Investigate lock out controls instead of game over [Code]
