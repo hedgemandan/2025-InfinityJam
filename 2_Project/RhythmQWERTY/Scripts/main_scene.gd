@@ -124,9 +124,13 @@ func game_setup():
 	
 	for button_name in buttons_data.keys():
 		buttons_data[button_name]["Node"].reset_anim()
+		buttons_data[button_name]["Node"].hide()
+		
 	
 	## Sets the 2 starter buttons to default state, starts the game timers and starts the music 
+	buttons_data["Button1"]["Node"].show()
 	buttons_data["Button1"]["Node"].empty_anim() #Makes starting button appear visible
+	buttons_data["Button2"]["Node"].show()
 	buttons_data["Button2"]["Node"].empty_anim() #Makes starting button appear visible
 	get_tree().call_group("timersGroup", "stop")
 	start_newbuttonspawn_timer()
