@@ -5,6 +5,7 @@ var popup_instance = null
 var end_screen = preload("res://Scenes/end_screen.tscn")
 var end_screen_instance = null
 var button = preload("res://Scenes/button.tscn")
+
 #var unpacked_instance = button.instantiate()
 var button_instance = null
 @onready var button_array = [$AllButtons/Button, $AllButtons/Button2, $AllButtons/Button3, $AllButtons/Button4, $AllButtons/Button5, $AllButtons/Button6, $AllButtons/Button7, $AllButtons/Button8, $AllButtons/Button9, $AllButtons/Button10, $AllButtons/Button11, $AllButtons/Button12, $AllButtons/Button13, $AllButtons/Button14, $AllButtons/Button15, $AllButtons/Button16, $AllButtons/Button17, $AllButtons/Button18, $AllButtons/Button19, $AllButtons/Button20, $AllButtons/Button21, $AllButtons/Button22, $AllButtons/Button23, $AllButtons/Button24, $AllButtons/Button25, $AllButtons/Button26, $AllButtons/Button27, $AllButtons/Button28, $AllButtons/Button29, $AllButtons/Button30, $AllButtons/Button31, $AllButtons/Button32, $AllButtons/Button33, $AllButtons/Button34, $AllButtons/Button35, $AllButtons/Button36, $AllButtons/Button37, $AllButtons/Button38, $AllButtons/Button39, $AllButtons/Button40, $AllButtons/Button41, $AllButtons/Button42, $AllButtons/Button43, $AllButtons/Button44, $AllButtons/Button45, $AllButtons/Button46, $AllButtons/Button47, $AllButtons/Button48, $AllButtons/Button49]
@@ -12,7 +13,6 @@ var bufferOGcolour
 @onready var SFXCorrectPress = $SFXCorrectPress
 @onready var SFXIncorrectPress = $SFXIncorrectPress
 @onready var Music = $Music
-
 
 @onready var correct_clicks = $"Correct Clicks"
 @onready var incorrect_clicks = $"Incorrect Clicks"
@@ -73,33 +73,34 @@ var bufferOGcolour
 func _ready():
 	game_setup()
 
+func game_setup():
+	## Checks all nodes in group "animated nodes" and connects the signal from "Button.tscn", so if any buttons reach the max extent of their animation it triggers the 
+	## "_on_reached_max_extent" end-game function
 	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
 	for node in all_animated_nodes:
 		if node.has_signal("reached_max_extent"):
 			node.connect("reached_max_extent", self._on_reached_max_extent)
-
-func game_setup():
+	
+	## Sets the 2 starter buttons to default state, starts the game timers and starts the music 
 	buttons_data["Button1"]["Node"].empty_anim() #Makes starting button appear visible
 	buttons_data["Button2"]["Node"].empty_anim() #Makes starting button appear visible
 	start_newbuttonspawn_timer()
 	start_buttoncharge_timer()
 	Music.play()
-	
+
+## Apply preset colours of nodes to all nodes once upon game setup
 	for button_name in buttons_data.keys():
 		var button_node = buttons_data[button_name]["Node"]
 		if button_node:
 			button_node.modulate = buttons_data[button_name]["Color"]
 			print("Applied color to:", button_name)
 
-func _on_reached_max_extent():
-	print("Game Over!")
-	
+
 
 ## Popup Menu Function
 func _input(event):
 	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_ESCAPE:
 		toggle_popup()
-
 ## Key press detection event
 	if event is InputEventKey and event.is_pressed():
 		var key_pressed = OS.get_keycode_string(event.keycode)
@@ -128,6 +129,9 @@ func check_buttons(key_pressed):
 			else:
 				pass
 
+
+
+## This section of code handles when the player loses
 func start_death_timer():
 	var timer = Timer.new()
 	timer.wait_time = 1
@@ -137,30 +141,47 @@ func start_death_timer():
 	timer.start()
 
 func _on_timer_timeoutdeath():
+	get_tree().paused = true
 	for button_name in buttons_data.keys():
 		var button_node = buttons_data[button_name]["Node"]
 		if button_node:
 			button_node.modulate = Color(1,1,1,1)
-	get_tree().paused = true
 	end_screen_instance = end_screen.instantiate()
-	end_screen_instance.restart_game.connect(game_setup)
 	add_child(end_screen_instance)
 	end_screen_instance.global_position = get_viewport_rect().size / 2 - end_screen_instance.size / 2
+	end_screen_instance.restart_game.connect(game_setup)
 	
+	print("Game Over incorrect key pressed")
+	
+func _on_reached_max_extent():
+	get_tree().paused = true
+	for button_name in buttons_data.keys():
+		var button_node = buttons_data[button_name]["Node"]
+		if button_node:
+			button_node.modulate = Color(1,1,1,1)
+	end_screen_instance = end_screen.instantiate()
+	add_child(end_screen_instance)
+	end_screen_instance.global_position = get_viewport_rect().size / 2 - end_screen_instance.size / 2
+	end_screen_instance.restart_game.connect(game_setup)
+	
+	print("Game Over via key not pressed in time")
 
-## Popup Menu function Pt. 2
+
+
+
+
+## This section of code handles the Popup Menu (in-game ESC menu)
 func toggle_popup():
 	if popup_instance:
 		pass
-		#get_tree().paused = false
-		#popup_instance.queue_free()
-		#popup_instance = null
 	else:
 		get_tree().paused = true
 		popup_instance = popup_menu.instantiate()
 		add_child(popup_instance)
 		popup_instance.global_position = get_viewport_rect().size / 2 - popup_instance.size / 2
 		
+
+
 
 
 ## timer for adding new buttons every 5 seconds and incrementing the gamestate by 1
@@ -186,7 +207,7 @@ func _on_timer_timeoutNB():
 
 
 
-## timer for making a random button go green from the selection of buttons which are visible
+## timer and timeout function for making a random button "charge up" from the selection of buttons which are visible
 func start_buttoncharge_timer():
 	var timer = Timer.new()
 	if global.gamestep <= 2:
@@ -204,7 +225,6 @@ func start_buttoncharge_timer():
 	
 func _on_timer_timeoutBC():
 		
-		#if/conditions like gamestate are met then highlight more than 1 random button. Then three adjacent horizontal. Then 2 adjacent vertical. 
 	## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
 	if global.gamestep >= 9: #enable doubles
 		var spawnlimit = 2
@@ -216,18 +236,7 @@ func _on_timer_timeoutBC():
 			else:
 				global.clickablebuttons.append(random_button)
 				random_button.grow_anim()
-				#start_anim_timer(random_button)
-	## Paired buttons?
-	#elif global.gamestep >= 6: #enable doubles
-		#var spawnlimitadj = 2
-		#for n in spawnlimitadj:
-			#var holdingvar2 = "Button" + str(randi_range(1, global.numberoffbuttonsvisible -1)) #concatenate
-			#var random_button = buttons_data[holdingvar2]["Node"]
-			#if random_button in global.clickablebuttons:
-				#_on_timer_timeoutBC()	#Do not double up charging the same button!
-			#else:
-				#global.clickablebuttons.append(random_button)
-				#random_button.grow_anim()
+	
 	## This immediate paragraph allows only one button to charging at a time prior to gamestep 10
 	else:
 		var holdingvar1 = "Button" + str(randi_range(1, global.numberoffbuttonsvisible -1)) #concatenate
@@ -240,25 +249,3 @@ func _on_timer_timeoutBC():
 			global.clickablebuttons.append(random_button)
 			print("clickable buttons number currently:", global.clickablebuttons)
 			random_button.grow_anim()
-
-
-
-#func start_anim_timer(random_button):
-	#var timer = Timer.new()
-	#timer.wait_time = 3
-	#timer.one_shot = true
-	#timer.connect("timeout", Callable(self, "_on_timer_timeoutSA"))
-	#add_child(timer)
-	#timer.start()
-	#global.lukesvariable = random_button
-	#return
-#
-#func _on_timer_timeoutSA():
-	#if global.lukesvariable.any(func(item): return item in global.clickablebuttons):
-		#queue_free()
-		#
-		
-		
-#tidy(random_button)
-#func tidy(random_button):
-	#return
