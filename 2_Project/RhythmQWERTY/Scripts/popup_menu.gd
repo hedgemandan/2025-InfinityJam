@@ -10,7 +10,7 @@ func _ready():
 	button_continue.empty_anim()
 # Change score label
 func updateHighScore():
-	score.text = "High Score: [b]" + str(global.HighScore_numberoffbuttonsvisible) + " KEYS[/b] / " + str(global.HighScore_correcthits) + " HITS"
+	score.text = "High Score: " + str(global.HighScore_numberoffbuttonsvisible) + " KEYS / " + str(global.HighScore_correcthits) + " HITS"
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed():

@@ -253,5 +253,5 @@ theme_override_fonts/bold_font = ExtResource("7_huasi")
 theme_override_font_sizes/normal_font_size = 48
 theme_override_font_sizes/bold_font_size = 96
 bbcode_enabled = true
-text = "[b]27 KEYS[/b] / 245 HITS"
+text = "27 KEYS / 245 HITS"
 horizontal_alignment = 1
