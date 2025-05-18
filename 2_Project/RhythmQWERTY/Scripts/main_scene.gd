@@ -7,6 +7,7 @@ var end_screen_instance = null
 var button = preload("res://Scenes/button.tscn")
 
 var failButton = null
+var firstSetup = false
 
 #var unpacked_instance = button.instantiate()
 var button_instance = null
@@ -121,10 +122,14 @@ func game_setup():
 	score.add_theme_color_override("default_color", Color(0.15, 0.15, 0.15))
 	$Button_Esc.modulate = Color(1, 0.251, 1, 1)
 	score.text = str(global.numberoffbuttonsvisible) + " KEYS / " + str(global.correcthits) + " HITS"
-	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
-	for node in all_animated_nodes:
-		if node.has_signal("reached_max_extent"):
-			node.connect("reached_max_extent", self._on_reached_max_extent.bind(node))
+	if firstSetup == false:
+		firstSetup = true
+		var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
+		for node in all_animated_nodes:
+			if node.has_signal("reached_max_extent"):
+				node.connect("reached_max_extent", self._on_reached_max_extent.bind(node))
+	else:
+		pass
 	
 	for button_name in buttons_data.keys():
 		buttons_data[button_name]["Node"].reset_anim()

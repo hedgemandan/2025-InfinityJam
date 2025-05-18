@@ -2139,7 +2139,6 @@ offset_right = 1.0
 offset_bottom = 13.0
 theme_override_fonts/font = ExtResource("4_svtet")
 theme_override_font_sizes/font_size = 36
-text = "X"
 
 [node name="Outline" type="Bone2D" parent="Skeleton2D"]
 modulate = Color(1, 1, 1, 0)

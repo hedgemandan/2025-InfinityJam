@@ -213,9 +213,9 @@ horizontal_alignment = 2
 stream = ExtResource("6_6ev3c")
 
 [node name="Score" type="RichTextLabel" parent="."]
-offset_top = 822.5
+offset_top = 840.0
 offset_right = 1920.0
-offset_bottom = 972.5
+offset_bottom = 990.0
 theme_override_colors/default_color = Color(0.14902, 0.14902, 0.14902, 1)
 theme_override_fonts/normal_font = ExtResource("7_huasi")
 theme_override_fonts/bold_font = ExtResource("7_huasi")
