@@ -9,6 +9,8 @@ Ongoing:
 Adjust pace of game to taste [Code][Ongoing]
 
 Stretch:
+Add hardcore mode
+Add hardcore mode as unlockable option
 Try to line up first few charges or presses with music?
 Move Keys over by 1? [Code]
 Contiguous pairings [Code]
