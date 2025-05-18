@@ -116,6 +116,8 @@ func game_setup():
 	global.clickablebuttons.clear()
 	global.correcthits = 0
 	global.incorrecthits = 0
+	game_title.add_theme_color_override("font_color", Color(0.15, 0.15, 0.15))
+	score.add_theme_color_override("default_color", Color(0.15, 0.15, 0.15))
 	score.text = "[b]" + str(global.numberoffbuttonsvisible) + " KEYS[/b] / " + str(global.correcthits) + " HITS"
 	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
 	for node in all_animated_nodes:
@@ -193,7 +195,7 @@ func game_over():
 		if button_node:
 			button_node.modulate = Color(1,1,1,1)
 	game_title.add_theme_color_override("font_color", Color(1, 1, 1))
-	score.add_theme_color_override("font_color", Color(1, 1, 1))
+	score.add_theme_color_override("default_color", Color(1, 1, 1))
 	end_screen_instance = end_screen.instantiate()
 	add_child(end_screen_instance)
 	end_screen_instance.end_game_screen()
