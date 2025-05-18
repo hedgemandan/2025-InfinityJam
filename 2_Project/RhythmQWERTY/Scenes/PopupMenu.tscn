@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://mcqvkfrekp01"]
+[gd_scene load_steps=9 format=3 uid="uid://mcqvkfrekp01"]
 
 [ext_resource type="Script" uid="uid://dgdc47gfy1j4x" path="res://Scripts/popup_menu.gd" id="1_fvsca"]
 [ext_resource type="Texture2D" uid="uid://bexst5sff3hj6" path="res://Assets/Final Assets/Background_V01.png" id="2_v67u6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cjauweq787t8e" path="res://Assets/Final Assets/Mute Icon_V01.png" id="5_1i0dd"]
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="5_dfv23"]
 [ext_resource type="PackedScene" uid="uid://dc6wlw5b3l1af" path="res://Scenes/button_Spacebar.tscn" id="6_8lisu"]
+[ext_resource type="Texture2D" uid="uid://cp64a88xpm46h" path="res://Assets/Final Assets/MenuSpacebar_V01.png" id="7_8lisu"]
 
 [node name="PopupMenu" type="Control"]
 process_mode = 3
@@ -173,6 +174,10 @@ offset_right = 1567.0
 offset_bottom = 567.0
 texture = ExtResource("5_1i0dd")
 
+[node name="Button_continue" parent="Background" instance=ExtResource("6_8lisu")]
+visible = false
+position = Vector2(960, 790)
+
 [node name="Continue" type="Button" parent="Background"]
 visible = false
 custom_minimum_size = Vector2(10, 10)
@@ -182,6 +187,10 @@ offset_top = 740.0
 offset_right = 1323.0
 offset_bottom = 840.0
 size_flags_vertical = 3
+
+[node name="Button_continue-flat" type="Sprite2D" parent="Background"]
+position = Vector2(960, 790)
+texture = ExtResource("7_8lisu")
 
 [node name="Sound_Continue" type="Label" parent="."]
 layout_mode = 1
@@ -202,9 +211,6 @@ theme_override_font_sizes/font_size = 48
 text = "Sound
 Continue"
 horizontal_alignment = 1
-
-[node name="Button_continue" parent="." instance=ExtResource("6_8lisu")]
-position = Vector2(960, 790)
 
 [node name="Score" type="RichTextLabel" parent="."]
 layout_mode = 1

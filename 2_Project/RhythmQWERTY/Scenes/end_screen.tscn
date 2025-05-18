@@ -17,32 +17,47 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bhpww")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960, 980)
-texture = ExtResource("2_8yanq")
+[node name="SFXIncorrectPress" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gdxnu")
 
-[node name="Restart Button" parent="." instance=ExtResource("2_gdxnu")]
-position = Vector2(960, 980)
-scale = Vector2(0.6, 0.6)
-
-[node name="Label-Restart" type="Label" parent="Restart Button"]
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -167.5
-offset_top = -60.0
-offset_right = 167.5
-offset_bottom = 48.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
+position = Vector2(960, 980)
+texture = ExtResource("2_8yanq")
+
+[node name="Label-Restart" type="Label" parent="TextureRect/Sprite2D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -418.0
+offset_top = -66.0
+offset_right = -18.0
+offset_bottom = 42.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_8yanq")
-theme_override_font_sizes/font_size = 80
+theme_override_font_sizes/font_size = 48
 text = "RESTART"
 horizontal_alignment = 1
 
-[node name="SFXIncorrectPress" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_gdxnu")
+[node name="Restart Button" parent="TextureRect" instance=ExtResource("2_gdxnu")]
+visible = false
+position = Vector2(960, 980)
+scale = Vector2(0.6, 0.6)
 
 [connection signal="restart_game" from="." to="." method="_on_restart_game"]

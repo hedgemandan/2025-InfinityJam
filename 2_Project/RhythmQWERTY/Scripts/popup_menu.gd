@@ -3,7 +3,7 @@ extends Control
 var Master = AudioServer.get_bus_index("Master")
 
 @onready var score: RichTextLabel = $Score
-@onready var button_continue: Node2D = $Button_continue
+@onready var button_continue: Node2D = $Background/Button_continue
 
 func _ready():
 	update_volume_button()
