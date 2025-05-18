@@ -16,8 +16,6 @@ var bufferOGcolour
 @onready var score: RichTextLabel = $Score
 @onready var game_title: Label = $"Game Title"
 
-@onready var keys_unlocked = $"Keys Unlocked"
-
 @onready var buttons_data = {
 	"Button1":		{"Node":$AllButtons/Button,"Letter":"H","Row":3,"Column":7,"Color":Color(0, 1, 1,1)},#
 	"Button2":		{"Node":$AllButtons/Button2,"Letter":"J","Row":3,"Column":8,"Color":Color(0, 1, 1,1)},#
@@ -239,6 +237,7 @@ func _on_timer_timeoutNB():
 			buttons_data[gamestepstring]["Node"].appear_anim()
 			global.numberoffbuttonsvisible += 1
 			global.gamestep += 1
+			print("global.gamestep = ", global.gamestep)
 	else:
 		pass
 
@@ -270,7 +269,7 @@ func _on_timer_timeoutBC():
 			spawn_buttons(spawnlimit)
 		
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
-		if global.gamestep >= 15: #enable doubles
+		elif global.gamestep >= 15: #enable doubles
 			var spawnlimit = 3
 			spawn_buttons(spawnlimit)
 		
