@@ -143,11 +143,10 @@ func _on_timer_timeoutdeath():
 			button_node.modulate = Color(1,1,1,1)
 	get_tree().paused = true
 	end_screen_instance = end_screen.instantiate()
+	end_screen_instance.restart_game.connect(game_setup)
 	add_child(end_screen_instance)
 	end_screen_instance.global_position = get_viewport_rect().size / 2 - end_screen_instance.size / 2
 	
-
-
 
 ## Popup Menu function Pt. 2
 func toggle_popup():
