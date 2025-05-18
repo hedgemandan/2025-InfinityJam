@@ -118,7 +118,7 @@ func game_setup():
 	global.incorrecthits = 0
 	game_title.add_theme_color_override("font_color", Color(0.15, 0.15, 0.15))
 	score.add_theme_color_override("default_color", Color(0.15, 0.15, 0.15))
-	score.text = "[b]" + str(global.numberoffbuttonsvisible) + " KEYS[/b] / " + str(global.correcthits) + " HITS"
+	score.text = str(global.numberoffbuttonsvisible) + " KEYS / " + str(global.correcthits) + " HITS"
 	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
 	for node in all_animated_nodes:
 		if node.has_signal("reached_max_extent"):
@@ -180,7 +180,7 @@ func check_buttons(key_pressed):
 					global.correcthits += 1
 					if global.correcthits > global.HighScore_correcthits:
 						global.HighScore_correcthits = global.correcthits
-					score.text = "[b]" + str(global.numberoffbuttonsvisible) + " KEYS[/b] / " + str(global.correcthits) + " HITS"
+					score.text = str(global.numberoffbuttonsvisible) + " KEYS / " + str(global.correcthits) + " HITS"
 					button_node.shrink_anim()
 				else:
 					game_over()
@@ -284,17 +284,32 @@ func start_buttoncharge_timer():
 func _on_timer_timeoutBC():
 	if global.gamestate == 0:
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
-		if global.gamestep >= 9 and global.gamestep < 15: 
+		if global.gamestep >= 8 and global.gamestep < 11: 
+			var spawnlimit = randi_range(1, 2)
+			spawn_buttons(spawnlimit)
+			
+		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
+		if global.gamestep >= 8 and global.gamestep < 15: 
 			var spawnlimit = 2
 			spawn_buttons(spawnlimit)
 		
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
-		elif global.gamestep >= 15 and global.gamestep < 25: 
+		elif global.gamestep >= 15 and global.gamestep < 20: 
 			var spawnlimit = randi_range(2, 3)
 			spawn_buttons(spawnlimit)
 		
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
-		elif global.gamestep >= 25: 
+		elif global.gamestep >= 20 and global.gamestep < 25: 
+			var spawnlimit = 3
+			spawn_buttons(spawnlimit)
+		
+		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
+		elif global.gamestep >= 25 and global.gamestep < 35: 
+			var spawnlimit = randi_range(2, 4)
+			spawn_buttons(spawnlimit)
+			
+		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
+		elif global.gamestep >= 35: 
 			var spawnlimit = randi_range(3, 4)
 			spawn_buttons(spawnlimit)
 		
