@@ -101,6 +101,7 @@ func game_setup():
 	global.gamestate == 0
 	global.gamestep = 0
 	global.numberoffbuttonsvisible = 2
+	global.clickablebuttons.clear()
 	global.correcthits = 0
 	global.incorrecthits = 0
 	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
