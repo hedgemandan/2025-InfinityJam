@@ -1,0 +1,14 @@
+In game sounds
+- Button "charging sound" or sounds: very soft start whilst in "filling" phase (not attention grabbing), then more urgent sound once fill reaches outer extent of button and is nearly about to 'overflow', slightly more attention grabbing.
+- Successful button press (i.e. when player clicks on a charging button)
+- Button 'burst' into game over sound
+- Pressed wrong button sound into game over sound
+- Sound for when player presses restart after they have had a game-over: ideally something shortish with reverb/volume decay, like a soft gong, synthy laser or 'fwoosh' to slide them back into the game
+In menu sounds
+- Sound when you open and close the menu
+- Sound when you change the volume setting
+
+Stretch goal sounds:
+A synthy, echoey voice saying: "Bigger"
+A synthy, echoey voice saying: "Faster"
+A synthy, echoey voice saying: "More"

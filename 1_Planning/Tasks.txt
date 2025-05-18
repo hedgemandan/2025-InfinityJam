@@ -1,5 +1,4 @@
 Key:
-Link to End game screen [Code]
 Upload and playtest browser version [Code]
 Shake & explode animation [Animation Code]
 Make space bar look like space bar in game [Art]
