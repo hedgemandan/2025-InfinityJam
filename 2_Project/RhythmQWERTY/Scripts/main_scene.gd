@@ -265,13 +265,15 @@ func start_buttoncharge_timer():
 	var timer = Timer.new()
 	timer.add_to_group("timersGroup")
 	if global.gamestep <= 2:
-		timer.wait_time = 2
-	elif global.gamestep <= 5:
-		timer.wait_time = 2
-	elif global.gamestep <= 10:
+		timer.wait_time = 2.5
+	elif global.gamestep > 2 and global.gamestep <= 9:
+		timer.wait_time = 2.5
+	elif global.gamestep > 9 and global.gamestep <= 13:
+		timer.wait_time = 2.5 - (global.gamestep)*0.1
+	elif global.gamestep > 13 and global.gamestep <= 25:
 		timer.wait_time = 2 - (global.gamestep)*0.1
 	else:
-		timer.wait_time = 1 - (global.gamestep)*0.2
+		timer.wait_time = 2.5 - (global.gamestep)*0.2
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeoutBC"))
 	add_child(timer)
@@ -280,13 +282,18 @@ func start_buttoncharge_timer():
 func _on_timer_timeoutBC():
 	if global.gamestate == 0:
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
-		if global.gamestep >= 9 and global.gamestep < 15: #enable doubles
+		if global.gamestep >= 9 and global.gamestep < 15: 
 			var spawnlimit = 2
 			spawn_buttons(spawnlimit)
 		
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
-		elif global.gamestep >= 15: #enable doubles
-			var spawnlimit = 3
+		elif global.gamestep >= 15 and global.gamestep < 25: 
+			var spawnlimit = randi_range(2, 3)
+			spawn_buttons(spawnlimit)
+		
+		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
+		elif global.gamestep >= 25: 
+			var spawnlimit = randi_range(3, 4)
 			spawn_buttons(spawnlimit)
 		
 		## This immediate paragraph allows only one button to charging at a time prior to gamestep 10
