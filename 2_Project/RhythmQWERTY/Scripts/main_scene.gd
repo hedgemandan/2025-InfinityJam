@@ -69,6 +69,28 @@ var bufferOGcolour
 	"Button48":		{"Node":$AllButtons/Button48,"Letter":"1","Row":1,"Column":2,"Color":Color(1, 1, 0,1)},#
 	"Button49":		{"Node":$AllButtons/Button49,"Letter":"Enter","Row":2,"Column":14,"Color":Color(1, 0.831, 0,1)}}#
 
+func get_display_text(letter: String) -> String:
+	match letter:
+		"Comma":
+			return ","
+		"Period":
+			return "."
+		"Semicolon":
+			return ";"
+		"Quote":
+			return "'"
+		"BackSlash":
+			return "\\"
+		"Slash":
+			return "/"
+		"Space":
+			return "␣"  # or just "Space"
+		"Enter":
+			return "⏎"
+		"Tab":
+			return "⇥"
+		_:
+			return letter  # For letters and any other characters
 
 func _ready():
 	game_setup()
@@ -91,7 +113,14 @@ func game_setup():
 
 ## Apply preset colours of nodes to all nodes once upon game setup
 	for button_name in buttons_data.keys():
-		var button_node = buttons_data[button_name]["Node"]
+		var button_info = buttons_data[button_name]
+		var button_node = button_info["Node"]
+		var letter = button_info["Letter"]
+		
+		# Access the KeyLabel node inside the button and set its text
+		var key_label = button_node.get_node("Skeleton2D/Outline/OutlineCurve1/KeyLabel")
+		key_label.text = get_display_text(letter)
+
 		if button_node:
 			button_node.modulate = buttons_data[button_name]["Color"]
 			print("Applied color to:", button_name)

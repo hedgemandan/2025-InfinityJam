@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://bq7kgpf0ql76u"]
+[gd_scene load_steps=13 format=3 uid="uid://bq7kgpf0ql76u"]
 
 [ext_resource type="Script" uid="uid://dclswfcwv33jp" path="res://Scripts/button.gd" id="1_0kpiu"]
 [ext_resource type="Texture2D" uid="uid://d37w0eyc2xhcb" path="res://Assets/Final Assets/OutlineCurve_V01.png" id="2_edukx"]
 [ext_resource type="Texture2D" uid="uid://dlj3ebeojuqnr" path="res://Assets/Final Assets/OutlineLine_V01.png" id="3_svtet"]
 [ext_resource type="Texture2D" uid="uid://b30qhg3tmia6c" path="res://Assets/Final Assets/FillCircle_V01.png" id="4_nrk2b"]
+[ext_resource type="FontFile" uid="uid://cg4fnpma8w0ih" path="res://Assets/Fonts/segoeuib.ttf" id="4_svtet"]
 [ext_resource type="Texture2D" uid="uid://h3mo045quk1q" path="res://Assets/Final Assets/FillRect_V01.png" id="5_c4mwi"]
 
 [sub_resource type="Animation" id="Animation_ur6nl"]
@@ -1973,6 +1974,15 @@ bone_angle = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Outline/OutlineCurve1/Circle1"]
 texture = ExtResource("4_nrk2b")
+
+[node name="KeyLabel" type="Label" parent="Skeleton2D/Outline/OutlineCurve1"]
+offset_left = -2.5
+offset_top = -15.5
+offset_right = 37.5
+offset_bottom = 49.5
+theme_override_fonts/font = ExtResource("4_svtet")
+theme_override_font_sizes/font_size = 48
+text = "X"
 
 [node name="OutlineCurve2" type="Bone2D" parent="Skeleton2D/Outline"]
 position = Vector2(36.5, -36.5)
