@@ -99,6 +99,7 @@ func game_setup():
 	## Checks all nodes in group "animated nodes" and connects the signal from "Button.tscn", so if any buttons reach the max extent of their animation it triggers the 
 	## "_on_reached_max_extent" end-game function
 	global.gamestate == 0
+	global.gamestep = 0
 	global.numberoffbuttonsvisible = 2
 	global.correcthits = 0
 	global.incorrecthits = 0
