@@ -1451,6 +1451,14 @@ script = ExtResource("1_fmdrl")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
+[node name="FullOutline" type="Sprite2D" parent="Skeleton2D"]
+
+[node name="KeyLabel" type="Label" parent="Skeleton2D/FullOutline"]
+offset_left = -350.0
+offset_top = -36.5
+offset_right = -310.0
+offset_bottom = -13.5
+
 [node name="Outline" type="Bone2D" parent="Skeleton2D"]
 rest = Transform2D(1, 0, 0, 1, 0, 0)
 auto_calculate_length_and_angle = false
@@ -1478,10 +1486,6 @@ bone_angle = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Outline/OutlineCurve1/Circle1"]
 texture = ExtResource("3_ypjao")
-
-[node name="KeyLabel" type="Label" parent="Skeleton2D/Outline/OutlineCurve1"]
-offset_right = 40.0
-offset_bottom = 23.0
 
 [node name="OutlineCurve2" type="Bone2D" parent="Skeleton2D/Outline"]
 position = Vector2(350, -36.5)

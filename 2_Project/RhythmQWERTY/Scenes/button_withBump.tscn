@@ -1947,6 +1947,16 @@ script = ExtResource("1_3b5jn")
 
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
+[node name="FullOutline" type="Sprite2D" parent="Skeleton2D"]
+
+[node name="KeyLabel" type="Label" parent="Skeleton2D/FullOutline"]
+offset_left = -39.0
+offset_top = -52.0
+offset_right = 1.0
+offset_bottom = 13.0
+theme_override_fonts/font = ExtResource("4_e8ppn")
+theme_override_font_sizes/font_size = 36
+
 [node name="Outline" type="Bone2D" parent="Skeleton2D"]
 modulate = Color(1, 1, 1, 0)
 rest = Transform2D(1, 0, 0, 1, 0, 0)
@@ -1975,14 +1985,6 @@ bone_angle = 0.0
 
 [node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/Outline/OutlineCurve1/Circle1"]
 texture = ExtResource("3_ni2rp")
-
-[node name="KeyLabel" type="Label" parent="Skeleton2D/Outline/OutlineCurve1"]
-offset_left = -2.5
-offset_top = -15.5
-offset_right = 37.5
-offset_bottom = 49.5
-theme_override_fonts/font = ExtResource("4_e8ppn")
-theme_override_font_sizes/font_size = 36
 
 [node name="OutlineCurve2" type="Bone2D" parent="Skeleton2D/Outline"]
 position = Vector2(36.5, -36.5)

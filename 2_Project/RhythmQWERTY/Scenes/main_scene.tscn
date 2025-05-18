@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=13 format=3 uid="uid://bda0noe43wn4p"]
 
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://cg4fnpma8w0ih" path="res://Assets/Fonts/segoeuib.ttf" id="7_huasi"]
 [ext_resource type="Texture2D" uid="uid://bpqd21nnj6gbq" path="res://Assets/Final Assets/Outline_All_V01.png" id="7_mai8y"]
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="8_m1efj"]
+[ext_resource type="Texture2D" uid="uid://bh4bmaeuesw7j" path="res://Assets/Final Assets/Cog_V01.png" id="9_drdnd"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6l7je")
@@ -180,13 +181,17 @@ stream = ExtResource("4_iacmt")
 position = Vector2(160, 145)
 texture = ExtResource("7_mai8y")
 
-[node name="KeyLabel" type="Label" parent="."]
+[node name="Cog icon" type="Sprite2D" parent="."]
+position = Vector2(180, 165)
+texture = ExtResource("9_drdnd")
+
+[node name="Esc Label" type="Label" parent="."]
 offset_left = 121.0
-offset_top = 93.0
+offset_top = 97.5
 offset_right = 191.0
-offset_bottom = 158.0
+offset_bottom = 162.5
 theme_override_fonts/font = ExtResource("7_huasi")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 36
 text = "Esc"
 
 [node name="Game Title" type="Label" parent="."]

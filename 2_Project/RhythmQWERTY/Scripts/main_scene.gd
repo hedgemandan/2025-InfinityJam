@@ -148,7 +148,7 @@ func game_setup():
 		var letter = button_info["Letter"]
 		
 		# Access the KeyLabel node inside the button and set its text
-		var key_label = button_node.get_node("Skeleton2D/Outline/OutlineCurve1/KeyLabel")
+		var key_label = button_node.get_node("Skeleton2D/FullOutline/KeyLabel")
 		key_label.text = get_display_text(letter)
 
 		if button_node:
@@ -206,7 +206,7 @@ func game_over():
 		var button_node = buttons_data[button_name]["Node"]
 		if button_node:
 			if buttons_data[button_name]["Letter"] == failButton:
-				button_node.modulate = Color(1,0,0,1)
+				button_node.modulate = Color(1, 0, 0.361,1)
 			else:
 				button_node.modulate = Color(1,1,1,1)
 	game_title.add_theme_color_override("font_color", Color(1, 1, 1))

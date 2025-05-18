@@ -35,7 +35,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="TextureRect"]
-position = Vector2(960, 980)
+position = Vector2(960, 960)
 texture = ExtResource("3_fi2y0")
 
 [node name="Label-Restart" type="Label" parent="TextureRect/Sprite2D"]
