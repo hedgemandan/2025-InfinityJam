@@ -1,0 +1,21 @@
+Key:
+Create End game screen [Art]
+Link to End game screen [Code]
+Implement controls for menu [Code]
+Upload and playtest browser version [Code]
+Shake & explode animation [Animation Code]
+Add letters to keys [Art]
+Make space bar look like space bar in game [Art]
+Make enter bar look like space bar in game [Art]
+
+Ongoing:
+Adjust pace of game to taste [Code][Ongoing]
+
+Stretch:
+Try to line up first few charges or presses with music?
+Move Keys over by 1? [Code]
+Contiguous pairings [Code]
+Enter button [Code]
+Fast forward [Code]
+Investigate lock out controls instead of game over [Code]
+Neaten up code [Code]
