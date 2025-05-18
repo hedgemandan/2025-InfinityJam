@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c84fnkkbiqt47"]
+[gd_scene load_steps=6 format=3 uid="uid://c84fnkkbiqt47"]
 
 [ext_resource type="Script" uid="uid://cehqmsfpt56fv" path="res://Scripts/end_screen.gd" id="1_bhpww"]
+[ext_resource type="Texture2D" uid="uid://bv0er8ysjb8w7" path="res://Assets/Final Assets/RestartButton_V01.png" id="2_8yanq"]
 [ext_resource type="PackedScene" uid="uid://dc6wlw5b3l1af" path="res://Scenes/button_Spacebar.tscn" id="2_gdxnu"]
 [ext_resource type="FontFile" uid="uid://cg4fnpma8w0ih" path="res://Assets/Fonts/segoeuib.ttf" id="3_8yanq"]
 [ext_resource type="AudioStream" uid="uid://cjxx3k783m1mp" path="res://Assets/SFX/powerDown_000.ogg" id="4_gdxnu"]
@@ -15,6 +16,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_bhpww")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 980)
+texture = ExtResource("2_8yanq")
 
 [node name="Restart Button" parent="." instance=ExtResource("2_gdxnu")]
 position = Vector2(960, 980)

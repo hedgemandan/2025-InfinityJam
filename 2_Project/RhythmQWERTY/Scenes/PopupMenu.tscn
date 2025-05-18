@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mcqvkfrekp01"]
+[gd_scene load_steps=8 format=3 uid="uid://mcqvkfrekp01"]
 
 [ext_resource type="Script" uid="uid://dgdc47gfy1j4x" path="res://Scripts/popup_menu.gd" id="1_fvsca"]
 [ext_resource type="Texture2D" uid="uid://bexst5sff3hj6" path="res://Assets/Final Assets/Background_V01.png" id="2_v67u6"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cg4fnpma8w0ih" path="res://Assets/Fonts/segoeuib.ttf" id="4_1i0dd"]
 [ext_resource type="Texture2D" uid="uid://cjauweq787t8e" path="res://Assets/Final Assets/Mute Icon_V01.png" id="5_1i0dd"]
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="5_dfv23"]
+[ext_resource type="PackedScene" uid="uid://dc6wlw5b3l1af" path="res://Scenes/button_Spacebar.tscn" id="6_8lisu"]
 
 [node name="PopupMenu" type="Control"]
 process_mode = 3
@@ -173,6 +174,7 @@ offset_bottom = 567.0
 texture = ExtResource("5_1i0dd")
 
 [node name="Continue" type="Button" parent="Background"]
+visible = false
 custom_minimum_size = Vector2(10, 10)
 layout_mode = 2
 offset_left = 597.0
@@ -201,7 +203,10 @@ text = "Sound
 Continue"
 horizontal_alignment = 1
 
-[node name="Score" type="Label" parent="."]
+[node name="Button_continue" parent="." instance=ExtResource("6_8lisu")]
+position = Vector2(960, 790)
+
+[node name="Score" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -211,19 +216,30 @@ anchor_bottom = 0.5
 offset_left = -960.0
 offset_top = -330.0
 offset_right = 960.0
-offset_bottom = -130.0
+offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_1i0dd")
-theme_override_font_sizes/font_size = 96
-text = "High Score: 27 KEYS / 245 HITS"
+theme_override_fonts/normal_font = ExtResource("4_1i0dd")
+theme_override_fonts/bold_font = ExtResource("4_1i0dd")
+theme_override_font_sizes/normal_font_size = 48
+theme_override_font_sizes/bold_font_size = 96
+bbcode_enabled = true
+text = "[b]High Score: 27 KEYS[/b] / 245 HITS"
 horizontal_alignment = 1
 
 [node name="Credits" type="Label" parent="."]
 layout_mode = 1
-offset_top = 970.0
-offset_right = 1920.0
-offset_bottom = 1020.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = 430.0
+offset_right = 960.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.14902, 0.14902, 0.14902, 1)
 theme_override_fonts/font = ExtResource("4_1i0dd")
 theme_override_font_sizes/font_size = 24
@@ -232,10 +248,17 @@ horizontal_alignment = 1
 
 [node name="Game Title" type="Label" parent="."]
 layout_mode = 1
-offset_left = 1465.0
-offset_top = 60.0
-offset_right = 1815.0
-offset_bottom = 204.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 505.0
+offset_top = -480.0
+offset_right = 855.0
+offset_bottom = -336.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0.14902, 0.14902, 0.14902, 1)
 theme_override_fonts/font = ExtResource("5_dfv23")
 theme_override_font_sizes/font_size = 96

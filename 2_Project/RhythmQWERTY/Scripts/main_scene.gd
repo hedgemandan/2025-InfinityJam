@@ -187,6 +187,8 @@ func _on_reached_max_extent():
 	print("Game Over via key not pressed in time")
 	
 func game_over():
+	global.HighScore_numberoffbuttonsvisible = global.numberoffbuttonsvisible
+	global.HighScore_correcthits = global.correcthits
 	get_tree().paused = true
 	for button_name in buttons_data.keys():
 		var button_node = buttons_data[button_name]["Node"]
@@ -211,6 +213,7 @@ func toggle_popup():
 		get_tree().paused = true
 		popup_instance = popup_menu.instantiate()
 		add_child(popup_instance)
+		popup_instance.updateHighScore()
 		popup_instance.global_position = get_viewport_rect().size / 2 - popup_instance.size / 2
 		
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=11 format=3 uid="uid://bda0noe43wn4p"]
 
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dc6wlw5b3l1af" path="res://Scenes/button_Spacebar.tscn" id="5_m1efj"]
 [ext_resource type="AudioStream" uid="uid://b2q0g5he7dkr7" path="res://Assets/Music/Loop Jam Actually Fcking Working.mp3" id="6_6ev3c"]
 [ext_resource type="FontFile" uid="uid://cg4fnpma8w0ih" path="res://Assets/Fonts/segoeuib.ttf" id="7_huasi"]
+[ext_resource type="PackedScene" uid="uid://b5t6y7nfjqrx1" path="res://Scenes/button_Esc.tscn" id="7_mai8y"]
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="8_m1efj"]
 
 [node name="MainScene" type="Node2D"]
@@ -220,6 +221,9 @@ position = Vector2(1760, 470)
 
 [node name="SFXCorrectPress" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_iacmt")
+
+[node name="Button_Esc" parent="." instance=ExtResource("7_mai8y")]
+position = Vector2(160, 145)
 
 [node name="Game Title" type="Label" parent="."]
 anchors_preset = 1

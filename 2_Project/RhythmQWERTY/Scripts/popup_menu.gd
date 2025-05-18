@@ -2,12 +2,15 @@ extends Control
 
 var Master = AudioServer.get_bus_index("Master")
 
-@onready var score: Label = $Score
+@onready var score: RichTextLabel = $Score
+@onready var button_continue: Node2D = $Button_continue
 
 func _ready():
 	update_volume_button()
+	button_continue.empty_anim()
 # Change score label
-# Code for changing the volume
+func updateHighScore():
+	score.text = "High Score: [b]" + str(global.numberoffbuttonsvisible) + " KEYS[/b] / " + str(global.correcthits) + " HITS"
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed():
@@ -24,7 +27,7 @@ func _input(event):
 func update_volume_button():
 	for i in range(10):
 		var button = $Background.get_node("Button%d" % i)
-		button.empty_anim()
+		button.shrink_menu_anim()
 	var currentVolume = $Background.get_node("Button%d" % global.volume)
 	print(currentVolume)
 	currentVolume.grow_menu_anim()

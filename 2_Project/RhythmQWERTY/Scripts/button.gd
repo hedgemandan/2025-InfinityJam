@@ -43,6 +43,12 @@ func grow_menu_anim():
 	$AnimationPlayer.speed_scale = 1
 	if self.visible:
 		anim_player.play("Grow_Menu")
+		
+func shrink_menu_anim():
+	var anim_player = $AnimationPlayer
+	$AnimationPlayer.speed_scale = -1
+	if self.visible:
+		anim_player.play("Grow_Menu")
 
 func _on_animation_finished(Grow):
 	if isMovingForward and Grow == "Grow":
