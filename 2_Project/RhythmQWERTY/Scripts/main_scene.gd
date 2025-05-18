@@ -76,6 +76,7 @@ func _ready():
 func game_setup():
 	## Checks all nodes in group "animated nodes" and connects the signal from "Button.tscn", so if any buttons reach the max extent of their animation it triggers the 
 	## "_on_reached_max_extent" end-game function
+	global.gamestate == 0
 	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
 	for node in all_animated_nodes:
 		if node.has_signal("reached_max_extent"):
@@ -194,15 +195,18 @@ func start_newbuttonspawn_timer():
 	timer.start()
 	
 func _on_timer_timeoutNB():
-	if global.gamestep >= 47:
+	if global.gamestate == 0:
+		if global.gamestep >= 47:
+			pass
+		else: 
+			var gamestepstring = "Button" + str(global.gamestep + 3) #concatenate. Buttons 1 + 2 are already showing
+			buttons_data[gamestepstring]["Node"].show()
+			buttons_data[gamestepstring]["Node"].appear_anim()
+			global.numberoffbuttonsvisible += 1
+			keys_unlocked.text = str(global.numberoffbuttonsvisible - 1)
+			global.gamestep += 1
+	else:
 		pass
-	else: 
-		var gamestepstring = "Button" + str(global.gamestep + 3) #concatenate. Buttons 1 + 2 are already showing
-		buttons_data[gamestepstring]["Node"].show()
-		buttons_data[gamestepstring]["Node"].appear_anim()
-		global.numberoffbuttonsvisible += 1
-		keys_unlocked.text = str(global.numberoffbuttonsvisible - 1)
-		global.gamestep += 1
 
 
 
@@ -224,28 +228,30 @@ func start_buttoncharge_timer():
 	timer.start()
 	
 func _on_timer_timeoutBC():
+	if global.gamestate == 0:
+		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
+		if global.gamestep >= 9: #enable doubles
+			var spawnlimit = 2
+			for n in spawnlimit:
+				var holdingvar1 = "Button" + str(randi_range(1, global.numberoffbuttonsvisible -1)) #concatenate
+				var random_button = buttons_data[holdingvar1]["Node"]
+				if random_button in global.clickablebuttons:
+					pass	#Do not double up charging the same button!
+				else:
+					global.clickablebuttons.append(random_button)
+					random_button.grow_anim()
 		
-	## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
-	if global.gamestep >= 9: #enable doubles
-		var spawnlimit = 2
-		for n in spawnlimit:
+		## This immediate paragraph allows only one button to charging at a time prior to gamestep 10
+		else:
 			var holdingvar1 = "Button" + str(randi_range(1, global.numberoffbuttonsvisible -1)) #concatenate
+			print("number of buttons visible:", global.numberoffbuttonsvisible)
 			var random_button = buttons_data[holdingvar1]["Node"]
 			if random_button in global.clickablebuttons:
-				pass	#Do not double up charging the same button!
+				pass
+				#_on_timer_timeoutBC()	#Do not double up charging the same button!
 			else:
 				global.clickablebuttons.append(random_button)
+				print("clickable buttons number currently:", global.clickablebuttons)
 				random_button.grow_anim()
-	
-	## This immediate paragraph allows only one button to charging at a time prior to gamestep 10
 	else:
-		var holdingvar1 = "Button" + str(randi_range(1, global.numberoffbuttonsvisible -1)) #concatenate
-		print("number of buttons visible:", global.numberoffbuttonsvisible)
-		var random_button = buttons_data[holdingvar1]["Node"]
-		if random_button in global.clickablebuttons:
-			pass
-			#_on_timer_timeoutBC()	#Do not double up charging the same button!
-		else:
-			global.clickablebuttons.append(random_button)
-			print("clickable buttons number currently:", global.clickablebuttons)
-			random_button.grow_anim()
+		pass

@@ -8,6 +8,7 @@ var incorrecthits = 0
 var volume = 5
 #var spawnrate = 0
 var lukesvariable = []
+var gamestate = 0 #set this to 1 for end game
 
 #func _physics_process(delta):
 	#button_node = get(button_node)
