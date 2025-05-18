@@ -99,17 +99,24 @@ func game_setup():
 	## Checks all nodes in group "animated nodes" and connects the signal from "Button.tscn", so if any buttons reach the max extent of their animation it triggers the 
 	## "_on_reached_max_extent" end-game function
 	global.gamestate == 0
+	global.numberoffbuttonsvisible = 2
+	global.correcthits = 0
+	global.incorrecthits = 0
 	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
 	for node in all_animated_nodes:
 		if node.has_signal("reached_max_extent"):
 			node.connect("reached_max_extent", self._on_reached_max_extent)
 	
+	for button_name in buttons_data.keys():
+		buttons_data[button_name]["Node"].reset_anim()
+	
 	## Sets the 2 starter buttons to default state, starts the game timers and starts the music 
 	buttons_data["Button1"]["Node"].empty_anim() #Makes starting button appear visible
 	buttons_data["Button2"]["Node"].empty_anim() #Makes starting button appear visible
+	get_tree().call_group("timersGroup", "stop")
 	start_newbuttonspawn_timer()
 	start_buttoncharge_timer()
-	Music.play()
+	Music.play(0.0)
 
 ## Apply preset colours of nodes to all nodes once upon game setup
 	for button_name in buttons_data.keys():
@@ -171,19 +178,14 @@ func start_death_timer():
 	timer.start()
 
 func _on_timer_timeoutdeath():
-	get_tree().paused = true
-	for button_name in buttons_data.keys():
-		var button_node = buttons_data[button_name]["Node"]
-		if button_node:
-			button_node.modulate = Color(1,1,1,1)
-	end_screen_instance = end_screen.instantiate()
-	add_child(end_screen_instance)
-	end_screen_instance.global_position = get_viewport_rect().size / 2 - end_screen_instance.size / 2
-	end_screen_instance.restart_game.connect(game_setup)
-	
+	game_over()	
 	print("Game Over incorrect key pressed")
 	
 func _on_reached_max_extent():
+	game_over()	
+	print("Game Over via key not pressed in time")
+	
+func game_over():
 	get_tree().paused = true
 	for button_name in buttons_data.keys():
 		var button_node = buttons_data[button_name]["Node"]
@@ -193,9 +195,6 @@ func _on_reached_max_extent():
 	add_child(end_screen_instance)
 	end_screen_instance.global_position = get_viewport_rect().size / 2 - end_screen_instance.size / 2
 	end_screen_instance.restart_game.connect(game_setup)
-	
-	print("Game Over via key not pressed in time")
-
 
 
 
@@ -217,6 +216,7 @@ func toggle_popup():
 ## timer for adding new buttons every 5 seconds and incrementing the gamestate by 1
 func start_newbuttonspawn_timer():
 	var timer = Timer.new()
+	timer.add_to_group("timersGroup")
 	timer.wait_time = 5
 	timer.one_shot = false
 	timer.connect("timeout", Callable(self, "_on_timer_timeoutNB"))
@@ -243,6 +243,7 @@ func _on_timer_timeoutNB():
 ## timer and timeout function for making a random button "charge up" from the selection of buttons which are visible
 func start_buttoncharge_timer():
 	var timer = Timer.new()
+	timer.add_to_group("timersGroup")
 	if global.gamestep <= 2:
 		timer.wait_time = 2
 	elif global.gamestep <= 5:

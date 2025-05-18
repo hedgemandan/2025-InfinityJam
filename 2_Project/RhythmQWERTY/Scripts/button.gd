@@ -32,6 +32,12 @@ func empty_anim():
 	if self.visible:
 		anim_player.play("Empty")
 
+func reset_anim():
+	var anim_player = $AnimationPlayer
+	$AnimationPlayer.speed_scale = 1
+	if self.visible:
+		anim_player.play("RESET")
+
 func grow_menu_anim():
 	var anim_player = $AnimationPlayer
 	$AnimationPlayer.speed_scale = 1
