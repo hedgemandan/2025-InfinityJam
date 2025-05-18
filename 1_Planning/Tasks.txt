@@ -1,17 +1,13 @@
 Key:
 Shift (second row from top, with R,T,Y,U etc in) a little bit to the right to line up with the row below; n.b. might need to shift row above as well as a result. [Art]
-Make border of ESC button white [Art]
+Make border of ESC button white upon loss [Art]
 Upload and playtest browser version [Code]
 Add in SFX [Code]
-Highlight incorrect button press and/or the one that pops [Artimation]
-Shake & explode animation [Animation Code]
+Add raised buttons to F and J [Art]
+Implement updated music [Code]
 
 Ongoing:
 Adjust pace of game to taste [Code][Ongoing]
 
 Stretch:
-Add hardcore mode
-	Add hardcore mode as unlockable option
-Move Keys over by 1? [Code]
-Make bubbly GIF of keys appearing (and disappearing?)
-Investigate lock out controls instead of game over [Code]
+Make bubbly GIF of keys appearing (and disappearing?) [Art]
