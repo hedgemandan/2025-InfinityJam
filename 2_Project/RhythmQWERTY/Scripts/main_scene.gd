@@ -162,7 +162,7 @@ func check_buttons(key_pressed):
 					button_node.shrink_anim()
 				else:
 					SFXIncorrectPress.play()
-					start_death_timer()
+					game_over()
 					global.incorrecthits += 1
 					incorrect_clicks.text = str(global.incorrecthits)
 			else:
@@ -171,18 +171,6 @@ func check_buttons(key_pressed):
 
 
 ## This section of code handles when the player loses
-func start_death_timer():
-	var timer = Timer.new()
-	timer.wait_time = 1
-	timer.one_shot = true
-	timer.connect("timeout", Callable(self, "_on_timer_timeoutdeath"))
-	add_child(timer)
-	timer.start()
-
-func _on_timer_timeoutdeath():
-	game_over()	
-	print("Game Over incorrect key pressed")
-	
 func _on_reached_max_extent():
 	game_over()	
 	print("Game Over via key not pressed in time")
