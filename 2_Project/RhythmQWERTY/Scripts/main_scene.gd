@@ -6,6 +6,8 @@ var end_screen = preload("res://Scenes/end_screen.tscn")
 var end_screen_instance = null
 var button = preload("res://Scenes/button.tscn")
 
+var failButton = null
+
 #var unpacked_instance = button.instantiate()
 var button_instance = null
 @onready var button_array = [$AllButtons/Button, $AllButtons/Button2, $AllButtons/Button3, $AllButtons/Button4, $AllButtons/Button5, $AllButtons/Button6, $AllButtons/Button7, $AllButtons/Button8, $AllButtons/Button9, $AllButtons/Button10, $AllButtons/Button11, $AllButtons/Button12, $AllButtons/Button13, $AllButtons/Button14, $AllButtons/Button15, $AllButtons/Button16, $AllButtons/Button17, $AllButtons/Button18, $AllButtons/Button19, $AllButtons/Button20, $AllButtons/Button21, $AllButtons/Button22, $AllButtons/Button23, $AllButtons/Button24, $AllButtons/Button25, $AllButtons/Button26, $AllButtons/Button27, $AllButtons/Button28, $AllButtons/Button29, $AllButtons/Button30, $AllButtons/Button31, $AllButtons/Button32, $AllButtons/Button33, $AllButtons/Button34, $AllButtons/Button35, $AllButtons/Button36, $AllButtons/Button37, $AllButtons/Button38, $AllButtons/Button39, $AllButtons/Button40, $AllButtons/Button41, $AllButtons/Button42, $AllButtons/Button43, $AllButtons/Button44, $AllButtons/Button45, $AllButtons/Button46, $AllButtons/Button47, $AllButtons/Button48, $AllButtons/Button49]
@@ -120,7 +122,7 @@ func game_setup():
 	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
 	for node in all_animated_nodes:
 		if node.has_signal("reached_max_extent"):
-			node.connect("reached_max_extent", self._on_reached_max_extent)
+			node.connect("reached_max_extent", self._on_reached_max_extent.bind(node))
 	
 	for button_name in buttons_data.keys():
 		buttons_data[button_name]["Node"].reset_anim()
@@ -160,6 +162,7 @@ func _input(event):
 ## Key press detection event
 	if event is InputEventKey and event.is_pressed():
 		var key_pressed = OS.get_keycode_string(event.keycode)
+		failButton = key_pressed
 		check_buttons(key_pressed)
 		print("This is the button you pressed:", key_pressed)
 
@@ -186,8 +189,11 @@ func check_buttons(key_pressed):
 
 
 ## This section of code handles when the player loses
-func _on_reached_max_extent():
-	game_over()	
+func _on_reached_max_extent(failedNode):
+	for button_name in buttons_data.keys():
+		if buttons_data[button_name]["Node"] == failedNode:
+			failButton = buttons_data[button_name]["Letter"]
+	game_over()
 	print("Game Over via key not pressed in time")
 	
 func game_over():
@@ -197,7 +203,10 @@ func game_over():
 	for button_name in buttons_data.keys():
 		var button_node = buttons_data[button_name]["Node"]
 		if button_node:
-			button_node.modulate = Color(1,1,1,1)
+			if buttons_data[button_name]["Letter"] == failButton:
+				button_node.modulate = Color(1,0,0,1)
+			else:
+				button_node.modulate = Color(1,1,1,1)
 	game_title.add_theme_color_override("font_color", Color(1, 1, 1))
 	score.add_theme_color_override("default_color", Color(1, 1, 1))
 	end_screen_instance = end_screen.instantiate()
