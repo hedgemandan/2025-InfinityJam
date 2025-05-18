@@ -18,6 +18,7 @@ var bufferOGcolour
 @onready var score: RichTextLabel = $Score
 @onready var game_title: Label = $"Game Title"
 
+
 @onready var buttons_data = {
 	"Button1":		{"Node":$AllButtons/Button,"Letter":"H","Row":3,"Column":7,"Color":Color(0, 1, 1,1)},#
 	"Button2":		{"Node":$AllButtons/Button2,"Letter":"J","Row":3,"Column":8,"Color":Color(0, 1, 1,1)},#
@@ -118,6 +119,7 @@ func game_setup():
 	global.incorrecthits = 0
 	game_title.add_theme_color_override("font_color", Color(0.15, 0.15, 0.15))
 	score.add_theme_color_override("default_color", Color(0.15, 0.15, 0.15))
+	$Button_Esc.modulate = Color(1, 0.251, 1, 1)
 	score.text = str(global.numberoffbuttonsvisible) + " KEYS / " + str(global.correcthits) + " HITS"
 	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
 	for node in all_animated_nodes:
@@ -209,6 +211,7 @@ func game_over():
 				button_node.modulate = Color(1,1,1,1)
 	game_title.add_theme_color_override("font_color", Color(1, 1, 1))
 	score.add_theme_color_override("default_color", Color(1, 1, 1))
+	$Button_Esc.modulate = Color(1, 1, 1, 1)
 	end_screen_instance = end_screen.instantiate()
 	add_child(end_screen_instance)
 	end_screen_instance.end_game_screen()

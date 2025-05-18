@@ -1,14 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=12 format=3 uid="uid://bda0noe43wn4p"]
 
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
 [ext_resource type="Texture2D" uid="uid://dyka72tgw6312" path="res://Assets/Layout_V01.png" id="2_jv6wh"]
 [ext_resource type="AudioStream" uid="uid://dawjqf2ov4arj" path="res://Assets/SFX/ui_dlc_alert_01.wav" id="4_iacmt"]
 [ext_resource type="Texture2D" uid="uid://bexst5sff3hj6" path="res://Assets/Final Assets/Background_V01.png" id="4_maf8m"]
+[ext_resource type="PackedScene" uid="uid://egshavxafpjr" path="res://Scenes/button_withBump.tscn" id="5_76v2p"]
 [ext_resource type="PackedScene" uid="uid://dc6wlw5b3l1af" path="res://Scenes/button_Spacebar.tscn" id="5_m1efj"]
 [ext_resource type="AudioStream" uid="uid://b2q0g5he7dkr7" path="res://Assets/Music/Loop Jam Actually Fcking Working.mp3" id="6_6ev3c"]
 [ext_resource type="FontFile" uid="uid://cg4fnpma8w0ih" path="res://Assets/Fonts/segoeuib.ttf" id="7_huasi"]
-[ext_resource type="PackedScene" uid="uid://b5t6y7nfjqrx1" path="res://Scenes/button_Esc.tscn" id="7_mai8y"]
+[ext_resource type="Texture2D" uid="uid://bpqd21nnj6gbq" path="res://Assets/Final Assets/Outline_All_V01.png" id="7_mai8y"]
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="8_m1efj"]
 
 [node name="MainScene" type="Node2D"]
@@ -28,202 +29,165 @@ texture = ExtResource("2_jv6wh")
 [node name="Button" parent="AllButtons" instance=ExtResource("1_52fb6")]
 position = Vector2(885, 540)
 
-[node name="Button2" parent="AllButtons" instance=ExtResource("1_52fb6")]
+[node name="Button2" parent="AllButtons" instance=ExtResource("5_76v2p")]
 position = Vector2(1010, 540)
 
 [node name="Button3" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(760, 540)
 
 [node name="Button4" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(1135, 540)
 
 [node name="Button5" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(1035, 665)
 
 [node name="Button6" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(960, 415)
+position = Vector2(980, 415)
 
 [node name="Button7" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(910, 665)
 
 [node name="Button8" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(835, 415)
+position = Vector2(855, 415)
 
 [node name="Button9" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(1085, 415)
+position = Vector2(1105, 415)
 
 [node name="Button10" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(785, 665)
 
 [node name="Button11" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(1160, 665)
 
 [node name="Button12" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(710, 415)
+position = Vector2(730, 415)
 
-[node name="Button13" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
+[node name="Button13" parent="AllButtons" instance=ExtResource("5_76v2p")]
 position = Vector2(635, 540)
 
 [node name="Button14" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(1260, 540)
 
 [node name="Button15" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(1210, 415)
+position = Vector2(1230, 415)
 
 [node name="Button16" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(660, 665)
 
 [node name="Button17" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(1285, 665)
 
 [node name="Button18" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(585, 415)
+position = Vector2(605, 415)
 
 [node name="Button19" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(510, 540)
 
 [node name="Button20" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(535, 665)
 
 [node name="Button21" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(1335, 415)
+position = Vector2(1355, 415)
 
 [node name="Button22" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(1385, 540)
 
 [node name="Button23" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(910, 290)
+position = Vector2(950, 290)
 
 [node name="Button24" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(785, 290)
+position = Vector2(825, 290)
 
 [node name="Button25" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(1035, 290)
+position = Vector2(1075, 290)
 
 [node name="Button26" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(1160, 290)
+position = Vector2(1200, 290)
 
 [node name="Button27" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(1410, 665)
 
 [node name="Button28" parent="AllButtons" groups=["animated_nodes"] instance=ExtResource("5_m1efj")]
-visible = false
 position = Vector2(832, 790)
 
 [node name="Button29" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(660, 290)
+position = Vector2(700, 290)
 
 [node name="Button30" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(1460, 415)
+position = Vector2(1480, 415)
 
 [node name="Button31" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(1510, 540)
 
 [node name="Button32" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(460, 415)
+position = Vector2(480, 415)
 
 [node name="Button33" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(385, 540)
 
 [node name="Button34" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(1285, 290)
+position = Vector2(1325, 290)
 
 [node name="Button35" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(410, 665)
 
 [node name="Button36" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(535, 290)
+position = Vector2(575, 290)
 
 [node name="Button37" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(410, 290)
+position = Vector2(450, 290)
 
 [node name="Button38" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(335, 415)
+position = Vector2(355, 415)
 
 [node name="Button39" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(260, 540)
 
 [node name="Button40" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(285, 665)
 
 [node name="Button41" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(1410, 290)
+position = Vector2(1450, 290)
 
 [node name="Button42" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(1535, 290)
+position = Vector2(1575, 290)
 
 [node name="Button43" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(1585, 415)
+position = Vector2(1605, 415)
 
 [node name="Button44" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(1635, 540)
 
 [node name="Button45" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(285, 290)
+position = Vector2(325, 282)
 
 [node name="Button46" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(210, 415)
+position = Vector2(230, 415)
 
 [node name="Button47" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(160, 665)
 
 [node name="Button48" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
-position = Vector2(160, 290)
+position = Vector2(200, 282)
 
 [node name="Button49" parent="AllButtons" instance=ExtResource("1_52fb6")]
-visible = false
 position = Vector2(1760, 470)
 
 [node name="SFXCorrectPress" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_iacmt")
 
-[node name="Button_Esc" parent="." instance=ExtResource("7_mai8y")]
+[node name="Button_Esc" type="Sprite2D" parent="."]
 position = Vector2(160, 145)
+texture = ExtResource("7_mai8y")
+
+[node name="KeyLabel" type="Label" parent="."]
+offset_left = 121.0
+offset_top = 93.0
+offset_right = 191.0
+offset_bottom = 158.0
+theme_override_fonts/font = ExtResource("7_huasi")
+theme_override_font_sizes/font_size = 48
+text = "Esc"
 
 [node name="Game Title" type="Label" parent="."]
 anchors_preset = 1
