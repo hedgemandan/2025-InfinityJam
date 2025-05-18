@@ -178,6 +178,8 @@ func check_buttons(key_pressed):
 					SFXCorrectPress.play()
 					global.clickablebuttons.erase(button_node)
 					global.correcthits += 1
+					if global.correcthits > global.HighScore_correcthits:
+						global.HighScore_correcthits = global.correcthits
 					score.text = "[b]" + str(global.numberoffbuttonsvisible) + " KEYS[/b] / " + str(global.correcthits) + " HITS"
 					button_node.shrink_anim()
 				else:
@@ -197,8 +199,6 @@ func _on_reached_max_extent(failedNode):
 	print("Game Over via key not pressed in time")
 	
 func game_over():
-	global.HighScore_numberoffbuttonsvisible = global.numberoffbuttonsvisible
-	global.HighScore_correcthits = global.correcthits
 	get_tree().paused = true
 	for button_name in buttons_data.keys():
 		var button_node = buttons_data[button_name]["Node"]
@@ -252,6 +252,8 @@ func _on_timer_timeoutNB():
 			buttons_data[gamestepstring]["Node"].show()
 			buttons_data[gamestepstring]["Node"].appear_anim()
 			global.numberoffbuttonsvisible += 1
+			if global.numberoffbuttonsvisible > global.HighScore_numberoffbuttonsvisible:
+				global.HighScore_numberoffbuttonsvisible = global.numberoffbuttonsvisible
 			global.gamestep += 1
 			print("global.gamestep = ", global.gamestep)
 	else:
