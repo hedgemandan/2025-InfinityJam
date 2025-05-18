@@ -19,3 +19,4 @@ Fast forward [Code]
 Investigate lock out controls instead of game over [Code]
 Neaten up code [Code]
 Polish end game screen [Art]
+Make bubbly GIF of keys appearing (and disappearing?)
