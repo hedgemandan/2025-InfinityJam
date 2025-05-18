@@ -13,8 +13,7 @@ var bufferOGcolour
 @onready var SFXCorrectPress = $SFXCorrectPress
 @onready var Music = $Music
 
-@onready var correct_clicks = $"Correct Clicks"
-@onready var incorrect_clicks = $"Incorrect Clicks"
+@onready var score: RichTextLabel = $Score
 @onready var keys_unlocked = $"Keys Unlocked"
 
 @onready var buttons_data = {
@@ -115,6 +114,7 @@ func game_setup():
 	global.clickablebuttons.clear()
 	global.correcthits = 0
 	global.incorrecthits = 0
+	score.text = "[b]" + str(global.numberoffbuttonsvisible) + " KEYS[/b] / " + str(global.correcthits) + " HITS"
 	var all_animated_nodes = get_tree().get_nodes_in_group("animated_nodes")
 	for node in all_animated_nodes:
 		if node.has_signal("reached_max_extent"):
@@ -169,12 +169,11 @@ func check_buttons(key_pressed):
 					SFXCorrectPress.play()
 					global.clickablebuttons.erase(button_node)
 					global.correcthits += 1
-					correct_clicks.text = str(global.correcthits)
+					score.text = "[b]" + str(global.numberoffbuttonsvisible) + " KEYS[/b] / " + str(global.correcthits) + " HITS"
 					button_node.shrink_anim()
 				else:
 					game_over()
 					global.incorrecthits += 1
-					incorrect_clicks.text = str(global.incorrecthits)
 			else:
 				pass
 

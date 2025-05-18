@@ -220,31 +220,6 @@ position = Vector2(1760, 470)
 [node name="SFXCorrectPress" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_iacmt")
 
-[node name="Correct Clicks" type="Label" parent="."]
-offset_left = 205.0
-offset_top = 25.0
-offset_right = 616.0
-offset_bottom = 109.0
-theme_override_font_sizes/font_size = 60
-text = "Correct Clicks:"
-
-[node name="Incorrect Clicks" type="Label" parent="."]
-offset_left = 1328.0
-offset_top = 17.0
-offset_right = 1787.0
-offset_bottom = 101.0
-theme_override_font_sizes/font_size = 60
-text = "Incorrect Clicks:"
-
-[node name="Keys Unlocked" type="Label" parent="."]
-offset_left = 732.0
-offset_top = 13.0
-offset_right = 1196.0
-offset_bottom = 182.0
-theme_override_font_sizes/font_size = 60
-text = "Number of Keys
-in play:"
-
 [node name="Game Title" type="Label" parent="."]
 anchors_preset = 1
 anchor_left = 1.0
