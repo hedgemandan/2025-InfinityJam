@@ -1,6 +1,10 @@
 extends Control
 
+@onready var SFXIncorrectPress = $SFXIncorrectPress
 signal restart_game
+
+func end_game_screen():
+	SFXIncorrectPress.play()
 
 func _input(event):
 	if event is InputEventKey and event.is_pressed():

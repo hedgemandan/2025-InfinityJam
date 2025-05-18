@@ -11,7 +11,6 @@ var button_instance = null
 @onready var button_array = [$AllButtons/Button, $AllButtons/Button2, $AllButtons/Button3, $AllButtons/Button4, $AllButtons/Button5, $AllButtons/Button6, $AllButtons/Button7, $AllButtons/Button8, $AllButtons/Button9, $AllButtons/Button10, $AllButtons/Button11, $AllButtons/Button12, $AllButtons/Button13, $AllButtons/Button14, $AllButtons/Button15, $AllButtons/Button16, $AllButtons/Button17, $AllButtons/Button18, $AllButtons/Button19, $AllButtons/Button20, $AllButtons/Button21, $AllButtons/Button22, $AllButtons/Button23, $AllButtons/Button24, $AllButtons/Button25, $AllButtons/Button26, $AllButtons/Button27, $AllButtons/Button28, $AllButtons/Button29, $AllButtons/Button30, $AllButtons/Button31, $AllButtons/Button32, $AllButtons/Button33, $AllButtons/Button34, $AllButtons/Button35, $AllButtons/Button36, $AllButtons/Button37, $AllButtons/Button38, $AllButtons/Button39, $AllButtons/Button40, $AllButtons/Button41, $AllButtons/Button42, $AllButtons/Button43, $AllButtons/Button44, $AllButtons/Button45, $AllButtons/Button46, $AllButtons/Button47, $AllButtons/Button48, $AllButtons/Button49]
 var bufferOGcolour
 @onready var SFXCorrectPress = $SFXCorrectPress
-@onready var SFXIncorrectPress = $SFXIncorrectPress
 @onready var Music = $Music
 
 @onready var correct_clicks = $"Correct Clicks"
@@ -89,6 +88,18 @@ func get_display_text(letter: String) -> String:
 			return "⏎"
 		"Tab":
 			return "⇥"
+		"Minus":
+			return "-"
+		"Equal":
+			return "="
+		"BracketLeft":
+			return "["
+		"BracketRight":
+			return "]"
+		"Apostrophe":
+			return "'"
+		"NumberSign":
+			return "#"
 		_:
 			return letter  # For letters and any other characters
 
@@ -161,7 +172,6 @@ func check_buttons(key_pressed):
 					correct_clicks.text = str(global.correcthits)
 					button_node.shrink_anim()
 				else:
-					SFXIncorrectPress.play()
 					game_over()
 					global.incorrecthits += 1
 					incorrect_clicks.text = str(global.incorrecthits)
@@ -183,6 +193,7 @@ func game_over():
 			button_node.modulate = Color(1,1,1,1)
 	end_screen_instance = end_screen.instantiate()
 	add_child(end_screen_instance)
+	end_screen_instance.end_game_screen()
 	end_screen_instance.global_position = get_viewport_rect().size / 2 - end_screen_instance.size / 2
 	end_screen_instance.restart_game.connect(game_setup)
 
