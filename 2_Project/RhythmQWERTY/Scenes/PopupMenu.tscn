@@ -189,6 +189,7 @@ offset_bottom = 840.0
 size_flags_vertical = 3
 
 [node name="Button_continue-flat" type="Sprite2D" parent="Background"]
+modulate = Color(1, 0.282353, 0.580392, 1)
 position = Vector2(960, 790)
 texture = ExtResource("7_8lisu")
 
