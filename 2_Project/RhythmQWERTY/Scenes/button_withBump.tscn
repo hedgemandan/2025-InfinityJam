@@ -2039,7 +2039,7 @@ tracks/44/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/45/type = "value"
 tracks/45/imported = false
@@ -2069,6 +2069,7 @@ script = ExtResource("1_3b5jn")
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
 [node name="FullOutline" type="Sprite2D" parent="Skeleton2D"]
+modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
 texture = ExtResource("2_ni2rp")
 
