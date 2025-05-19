@@ -301,34 +301,29 @@ func _on_timer_timeoutBC():
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
 		if global.gamestep >= 4 and global.gamestep < 8: 
 			global.timer.wait_time = 1.8
-			print("I am here in step 1")
 			
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
 		if global.gamestep == 8: 
 			var spawnlimit = 1
 			global.timer.wait_time = 2.5
 			spawn_buttons(spawnlimit)#
-			print("I am here in step 1")
 			
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
 		if global.gamestep >= 9 and global.gamestep < 11: 
 			var spawnlimit = 2
 			global.timer.wait_time = 2.2
 			spawn_buttons(spawnlimit)#
-			print("I am here in step 1")
 			
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
 		elif global.gamestep >= 11 and global.gamestep < 14: 
 			var spawnlimit = 2
 			global.timer.wait_time = 2
 			spawn_buttons(spawnlimit)
-			print("I am here in step 2")
 			
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
-		elif global.gamestep >= 15 and global.gamestep < 17: 
+		elif global.gamestep >= 14 and global.gamestep < 17: 
 			var spawnlimit = randi_range(2, 3)
 			spawn_buttons(spawnlimit)
-			print("I am here in step 3")
 			
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
 		elif global.gamestep >= 17 and global.gamestep < 25: 
