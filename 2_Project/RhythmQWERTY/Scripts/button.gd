@@ -66,6 +66,11 @@ func _on_animation_finished(Grow):
 
 #SFX
 func ChargeSFX():
+	var soundDampeningMultiplier = 0.25
+	sfx_charge.set_volume_db(0-(global.gamestep*soundDampeningMultiplier))
+	sfx_charge_2.set_volume_db(0-(global.gamestep*soundDampeningMultiplier))
+	sfx_charge_3.set_volume_db(0-(global.gamestep*soundDampeningMultiplier))
+
 	var randomNumber = randi_range(1, 3)
 	if randomNumber == 1:
 		sfx_charge.play(0)

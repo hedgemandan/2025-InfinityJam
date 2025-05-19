@@ -86,9 +86,9 @@ func get_display_text(letter: String) -> String:
 		"Slash":
 			return "/"
 		"Space":
-			return ""  # or just "Space"
+			return ""
 		"Enter":
-			return "⏎"
+			return ""
 		"Tab":
 			return "⇥"
 		"Minus":
