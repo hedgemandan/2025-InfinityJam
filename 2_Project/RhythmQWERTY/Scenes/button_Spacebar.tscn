@@ -457,10 +457,10 @@ tracks/0/path = NodePath("Skeleton2D/Outline/OutlineCurve1/Circle1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.266667, 2),
-"transitions": PackedFloat32Array(1.75, 1, 0.5),
+"times": PackedFloat32Array(0, 0.266667, 1.13333, 2),
+"transitions": PackedFloat32Array(1.75, 1, 1, 0.5),
 "update": 0,
-"values": [Vector2(350, 36.5), Vector2(350, 36.5), Vector2(11.5, 11.5)]
+"values": [Vector2(350, 36.5), Vector2(350, 36.5), Vector2(36.5, 36.5), Vector2(11.5, 11.5)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -469,10 +469,10 @@ tracks/1/path = NodePath("Skeleton2D/Outline/OutlineCurve2/Circle2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.266667, 2),
-"transitions": PackedFloat32Array(1.75, 1, 0.5),
+"times": PackedFloat32Array(0, 0.266667, 1.13333, 2),
+"transitions": PackedFloat32Array(1.75, 1, 1, 0.5),
 "update": 0,
-"values": [Vector2(-350, 36.5), Vector2(-350, 36.5), Vector2(-11.5, 11.5)]
+"values": [Vector2(-350, 36.5), Vector2(-350, 36.5), Vector2(-36.5, 36.5), Vector2(-11.5, 11.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -481,10 +481,10 @@ tracks/2/path = NodePath("Skeleton2D/Outline/OutlineCurve3/Circle3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.266667, 2),
-"transitions": PackedFloat32Array(1.75, 1, 0.5),
+"times": PackedFloat32Array(0, 0.266667, 1.13333, 2),
+"transitions": PackedFloat32Array(1.75, 1, 1, 0.5),
 "update": 0,
-"values": [Vector2(350, -36.5), Vector2(350, -36.5), Vector2(11.5, -11.5)]
+"values": [Vector2(350, -36.5), Vector2(350, -36.5), Vector2(36.5, -36.5), Vector2(11.5, -11.5)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -493,10 +493,10 @@ tracks/3/path = NodePath("Skeleton2D/Outline/OutlineCurve4/Circle4:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.266667, 2),
-"transitions": PackedFloat32Array(1.75, 1, 0.5),
+"times": PackedFloat32Array(0, 0.266667, 1.13333, 2),
+"transitions": PackedFloat32Array(1.75, 1, 1, 0.5),
 "update": 0,
-"values": [Vector2(-350, -36.5), Vector2(-350, -36.5), Vector2(-11.5, -11.5)]
+"values": [Vector2(-350, -36.5), Vector2(-350, -36.5), Vector2(-36.5, -36.5), Vector2(-11.5, -11.5)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -541,7 +541,7 @@ tracks/7/path = NodePath("Skeleton2D/Fill/RectangleV:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0.266667),
+"times": PackedFloat32Array(1.13333),
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
@@ -553,7 +553,7 @@ tracks/8/path = NodePath("Skeleton2D/Outline/OutlineCurve4/Circle4:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.256667, 0.266667),
+"times": PackedFloat32Array(0, 1.12333, 1.13333),
 "transitions": PackedFloat32Array(1.75, 1, 1),
 "update": 1,
 "values": [false, false, true]
@@ -565,7 +565,7 @@ tracks/9/path = NodePath("Skeleton2D/Outline/OutlineCurve3/Circle3:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0, 0.256667, 0.266667),
+"times": PackedFloat32Array(0, 1.12333, 1.13333),
 "transitions": PackedFloat32Array(1.75, 1, 1),
 "update": 1,
 "values": [false, false, true]
@@ -745,10 +745,10 @@ tracks/24/path = NodePath("Skeleton2D/Outline/OutlineCurve1/Circle1:scale")
 tracks/24/interp = 1
 tracks/24/loop_wrap = true
 tracks/24/keys = {
-"times": PackedFloat32Array(0, 0.266667, 2),
-"transitions": PackedFloat32Array(1.75, 1, 0.5),
+"times": PackedFloat32Array(0, 0.266667, 1.13333, 2),
+"transitions": PackedFloat32Array(1.75, 1, 1, 0.5),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(1e-05, 1e-05), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
 }
 tracks/25/type = "value"
 tracks/25/imported = false
@@ -757,10 +757,10 @@ tracks/25/path = NodePath("Skeleton2D/Outline/OutlineCurve2/Circle2:scale")
 tracks/25/interp = 1
 tracks/25/loop_wrap = true
 tracks/25/keys = {
-"times": PackedFloat32Array(0.266667, 2),
-"transitions": PackedFloat32Array(1, 0.5),
+"times": PackedFloat32Array(0.266667, 1.13333, 2),
+"transitions": PackedFloat32Array(1, 1, 0.5),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1)]
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1, 1)]
 }
 tracks/26/type = "value"
 tracks/26/imported = false
@@ -793,10 +793,10 @@ tracks/28/path = NodePath("Skeleton2D/Fill/RectangleV:scale")
 tracks/28/interp = 1
 tracks/28/loop_wrap = true
 tracks/28/keys = {
-"times": PackedFloat32Array(0, 0.266667, 2, 3),
-"transitions": PackedFloat32Array(1.75, 1, 0.5, 1),
+"times": PackedFloat32Array(0, 0.266667, 1.13333, 2, 3),
+"transitions": PackedFloat32Array(1.75, 1, 1, 0.5, 1),
 "update": 0,
-"values": [Vector2(1e-05, 0.45), Vector2(1e-05, 0.45), Vector2(1, 1), Vector2(1.04, 1.29)]
+"values": [Vector2(1e-05, 0.45), Vector2(1e-05, 0.45), Vector2(0.935, 0.44), Vector2(1, 1), Vector2(1.04, 1.29)]
 }
 tracks/29/type = "value"
 tracks/29/imported = false
@@ -805,10 +805,10 @@ tracks/29/path = NodePath("Skeleton2D/Fill/RectangleH:scale")
 tracks/29/interp = 1
 tracks/29/loop_wrap = true
 tracks/29/keys = {
-"times": PackedFloat32Array(0, 0.266667, 2, 3),
-"transitions": PackedFloat32Array(1.75, 1, 0.5, 1),
+"times": PackedFloat32Array(0, 0.266038, 0.266667, 0.268698, 1.13333, 1.13361, 2, 3),
+"transitions": PackedFloat32Array(1.75, 1, 1, 1, 1, 1, 0.5, 1),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(0.05, 1e-05), Vector2(1, 1), Vector2(1.035, 1.5)]
+"values": [Vector2(1e-05, 1e-05), Vector2(1e-05, 0.75), Vector2(0.05, 1e-05), Vector2(1e-05, 0.75), Vector2(0.875, 0.75), Vector2(0.929, 1e-05), Vector2(1, 1), Vector2(1.035, 1.5)]
 }
 tracks/30/type = "value"
 tracks/30/imported = false
