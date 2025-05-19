@@ -1,8 +1,5 @@
 Key:
-Resolution too big for 1920 screen - maybe enable fullscreen but I like playing windowed and so do others [Resolution/Art]
 
-
-Add in SFX [Code]
 
 
 Stretch:
