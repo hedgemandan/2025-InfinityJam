@@ -61,8 +61,8 @@ func _on_animation_finished(Grow):
 
 #SFX
 func ChargeSFX():
-	var soundDampeningMultiplier = 0.25
-	sfx_charge.set_volume_db(0-(global.gamestep*soundDampeningMultiplier))
+	var soundDampeningMultiplier = 0.15
+	sfx_charge.set_volume_db(8-(global.gamestep*soundDampeningMultiplier))
 	sfx_charge.play(0)
 		
 func ChargeSFXStop():

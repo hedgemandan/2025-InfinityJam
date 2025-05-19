@@ -1,8 +1,7 @@
-[gd_scene load_steps=20 format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=19 format=3 uid="uid://bda0noe43wn4p"]
 
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
-[ext_resource type="Texture2D" uid="uid://dyka72tgw6312" path="res://Assets/Layout_V01.png" id="2_jv6wh"]
 [ext_resource type="Texture2D" uid="uid://bexst5sff3hj6" path="res://Assets/Final Assets/Background_V01.png" id="4_maf8m"]
 [ext_resource type="PackedScene" uid="uid://egshavxafpjr" path="res://Scenes/button_withBump.tscn" id="5_76v2p"]
 [ext_resource type="PackedScene" uid="uid://dc6wlw5b3l1af" path="res://Scenes/button_Spacebar.tscn" id="5_m1efj"]
@@ -26,11 +25,6 @@ script = ExtResource("1_6l7je")
 [node name="BG" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("4_maf8m")
-
-[node name="LayoutV01" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(960, 540)
-texture = ExtResource("2_jv6wh")
 
 [node name="AllButtons" type="Node" parent="."]
 
