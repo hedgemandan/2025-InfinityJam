@@ -1,7 +1,6 @@
 Key:
 Resolution too big for 1920 screen - maybe enable fullscreen but I like playing windowed and so do others [Resolution/Art]
-Clink splash art not loading for me now for some reason [Art?]
-Add in additional buttoncharge spawn to bulk out mid to late game [Code]
+
 
 Add in SFX [Code]
 Add in level of escalation beyond gamestate49 [Code]

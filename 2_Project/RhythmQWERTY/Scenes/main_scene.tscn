@@ -238,4 +238,3 @@ text = "2 KEYS / 0 HITS"
 horizontal_alignment = 1
 
 [node name="splashScreen" parent="." instance=ExtResource("13_ioaeq")]
-visible = false
