@@ -182,6 +182,7 @@ position = Vector2(160, 145)
 texture = ExtResource("7_mai8y")
 
 [node name="Cog icon" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(180, 165)
 texture = ExtResource("9_drdnd")
 
@@ -192,7 +193,7 @@ offset_right = 191.0
 offset_bottom = 162.5
 theme_override_fonts/font = ExtResource("7_huasi")
 theme_override_font_sizes/font_size = 36
-text = "Esc"
+text = "Esc     Settings"
 
 [node name="Game Title" type="Label" parent="."]
 anchors_preset = 1

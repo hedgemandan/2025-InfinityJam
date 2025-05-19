@@ -226,12 +226,13 @@ offset_right = 960.0
 offset_bottom = -180.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_colors/default_color = Color(0, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("4_1i0dd")
 theme_override_fonts/bold_font = ExtResource("4_1i0dd")
 theme_override_font_sizes/normal_font_size = 48
 theme_override_font_sizes/bold_font_size = 96
 bbcode_enabled = true
-text = "High Score: 27 KEYS / 245 HITS"
+text = "HIGH SCORE: 27 KEYS / 245 HITS"
 horizontal_alignment = 1
 
 [node name="Credits" type="Label" parent="."]
