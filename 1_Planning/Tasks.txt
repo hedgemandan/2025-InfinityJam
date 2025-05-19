@@ -3,7 +3,6 @@ Key:
 
 
 Stretch:
-Finish Return key art
 Make bubbly GIF of keys appearing (and disappearing?) [Art]
 BIGGER FASTER MORE - in red letter combos
 Offset game keyboard
