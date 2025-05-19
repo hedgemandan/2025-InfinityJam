@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dc6wlw5b3l1af"]
+[gd_scene load_steps=16 format=3 uid="uid://dc6wlw5b3l1af"]
 
 [ext_resource type="Script" uid="uid://dclswfcwv33jp" path="res://Scripts/button.gd" id="1_fmdrl"]
 [ext_resource type="Texture2D" uid="uid://d37w0eyc2xhcb" path="res://Assets/Final Assets/OutlineCurve_V01.png" id="2_gwp6c"]
@@ -7,6 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://v8boh41bwev4" path="res://Assets/Final Assets/OutlineLine_Spacebar_V01.png" id="4_ypjao"]
 [ext_resource type="Texture2D" uid="uid://banb2u8ggxbwk" path="res://Assets/Final Assets/FillRectV_Spacebar_V01.png" id="6_t1cfj"]
 [ext_resource type="Texture2D" uid="uid://sxt6xilxuog8" path="res://Assets/Final Assets/FillRectH_Spacebar_V01.png" id="7_n2poo"]
+[ext_resource type="AudioStream" uid="uid://n1q027cu47lv" path="res://Assets/SFX/Final/button_charge_01.wav" id="8_3mlct"]
+[ext_resource type="AudioStream" uid="uid://cuc87vkctqo3f" path="res://Assets/SFX/Final/button_charge_02.wav" id="9_2ib4c"]
+[ext_resource type="AudioStream" uid="uid://dvlesbtoeyxoi" path="res://Assets/SFX/Final/button_charge_03.wav" id="10_4nt28"]
 
 [sub_resource type="Animation" id="Animation_ypjao"]
 resource_name = "Appear"
@@ -1625,3 +1628,12 @@ texture = ExtResource("7_n2poo")
 libraries = {
 &"": SubResource("AnimationLibrary_c4mwi")
 }
+
+[node name="SFXCharge" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_3mlct")
+
+[node name="SFXCharge2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_2ib4c")
+
+[node name="SFXCharge3" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_4nt28")

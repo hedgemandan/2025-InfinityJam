@@ -75,7 +75,6 @@ func ChargeSFX():
 		sfx_charge_3.play(0)
 		
 func ChargeSFXStop():
-	pass
-	#sfx_charge.stop()
-	#sfx_charge_2.stop()
-	#sfx_charge_3.stop()
+	sfx_charge.stop()
+	sfx_charge_2.stop()
+	sfx_charge_3.stop()
