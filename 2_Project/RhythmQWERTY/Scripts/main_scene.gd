@@ -5,7 +5,7 @@ var popup_instance = null
 var end_screen = preload("res://Scenes/end_screen.tscn")
 var end_screen_instance = null
 var button = preload("res://Scenes/button.tscn")
-
+var timer_flag = 1
 var failButton = null
 var firstSetup = false
 
@@ -146,6 +146,8 @@ func game_setup():
 	get_tree().call_group("timersGroup", "stop")
 	start_newbuttonspawn_timer()
 	start_buttoncharge_timer()
+	#print("This is where I call the one shot timer...")
+	#one_shot_delay_timer() #leads to second charge growing timer!!!!
 	Music.play(0.0)
 
 ## Apply preset colours of nodes to all nodes once upon game setup
@@ -274,25 +276,24 @@ func _on_timer_timeoutNB():
 
 ## timer and timeout function for making a random button "charge up" from the selection of buttons which are visible
 func start_buttoncharge_timer():
-	var timer = Timer.new()
-	timer.add_to_group("timersGroup")
+	global.timer = Timer.new()
+	global.timer.add_to_group("timersGroup")
 	if global.gamestep <= 2:
-		timer.wait_time = 2.5
-	elif global.gamestep > 2 and global.gamestep <= 9:
-		timer.wait_time = 2.5
-	elif global.gamestep > 9 and global.gamestep <= 13:
-		timer.wait_time = 2.5 - (global.gamestep)*0.1
-	elif global.gamestep > 13 and global.gamestep <= 25:
-		timer.wait_time = 2 - (global.gamestep)*0.1
-	else:
-		timer.wait_time = 2.5 - (global.gamestep)*0.2
-	timer.one_shot = false
-	timer.connect("timeout", Callable(self, "_on_timer_timeoutBC"))
-	add_child(timer)
-	timer.start()
+		global.timer.wait_time = 2.5
+	global.timer.one_shot = false
+	global.timer.connect("timeout", Callable(self, "_on_timer_timeoutBC"))
+	add_child(global.timer)
+	global.timer.start()
+
 	
 func _on_timer_timeoutBC():
 	if global.gamestate == 0:
+		
+		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
+		if global.gamestep >= 4 and global.gamestep < 8: 
+			global.timer.wait_time = 2.5
+			print("I am here in step 1")
+			
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
 		if global.gamestep >= 8 and global.gamestep < 11: 
 			var spawnlimit = randi_range(1, 2)
@@ -309,7 +310,7 @@ func _on_timer_timeoutBC():
 		elif global.gamestep >= 15 and global.gamestep < 20: 
 			var spawnlimit = randi_range(2, 3)
 			spawn_buttons(spawnlimit)
-			print("I am here in step 2")
+			print("I am here in step 3")
 			
 		## This immediate paragraph below allows for two buttons charging at the same time beyond gamestep 12
 		elif global.gamestep >= 20 and global.gamestep < 25: 
