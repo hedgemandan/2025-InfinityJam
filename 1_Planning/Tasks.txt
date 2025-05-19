@@ -1,9 +1,10 @@
 Key:
 Upload and playtest browser version [Code]
 Add in SFX [Code]
-Implement updated music [Code]
+
 
 Ongoing:
+Implement/test updated music [Code][Ongoing]
 Adjust pace of game to taste [Code][Ongoing]
 
 Stretch:
