@@ -199,7 +199,8 @@ func check_buttons(key_pressed):
 					score.text = str(global.numberoffbuttonsvisible) + " KEYS / " + str(global.correcthits) + " HITS"
 					button_node.shrink_anim()
 				else:
-					game_over()
+					if firstSetup:
+						game_over()
 					global.incorrecthits += 1
 			else:
 				pass
@@ -211,7 +212,8 @@ func _on_reached_max_extent(failedNode):
 	for button_name in buttons_data.keys():
 		if buttons_data[button_name]["Node"] == failedNode:
 			failButton = buttons_data[button_name]["Letter"]
-	game_over()
+	if firstSetup:
+		game_over()
 	print("Game Over via key not pressed in time")
 	
 func game_over():
