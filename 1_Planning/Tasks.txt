@@ -1,14 +1,13 @@
 Key:
-Upload and playtest browser version [Code]
 Add in SFX [Code]
+Add in additional buttoncharge spawn to bulk out mid to late game [Code]
+Add in level of escalation beyond gamestate49
+Space bar animation [Art]
 
 
-
-Ongoing:
-Implement/test updated music [Code][Ongoing]
-Adjust pace of game to taste [Code][Ongoing]
 
 Stretch:
+Finish Return key art
 Make bubbly GIF of keys appearing (and disappearing?) [Art]
 BIGGER FASTER MORE - in red letter combos
 Offset game keyboard
