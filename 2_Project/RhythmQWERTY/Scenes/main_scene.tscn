@@ -166,7 +166,7 @@ position = Vector2(1605, 415)
 position = Vector2(1635, 540)
 
 [node name="Button45" parent="AllButtons" instance=ExtResource("1_52fb6")]
-position = Vector2(325, 282)
+position = Vector2(325, 290)
 
 [node name="Button46" parent="AllButtons" instance=ExtResource("1_52fb6")]
 position = Vector2(230, 415)
@@ -175,7 +175,7 @@ position = Vector2(230, 415)
 position = Vector2(200, 665)
 
 [node name="Button48" parent="AllButtons" instance=ExtResource("1_52fb6")]
-position = Vector2(200, 282)
+position = Vector2(200, 290)
 
 [node name="Button49" parent="AllButtons" groups=["animated_nodes"] instance=ExtResource("7_2ebs2")]
 position = Vector2(1760, 477.5)
