@@ -194,7 +194,17 @@ offset_right = 191.0
 offset_bottom = 162.5
 theme_override_fonts/font = ExtResource("7_huasi")
 theme_override_font_sizes/font_size = 36
-text = "Esc     Settings"
+text = "Esc"
+
+[node name="Settings" type="Label" parent="."]
+offset_left = 222.5
+offset_top = 97.5
+offset_right = 360.5
+offset_bottom = 162.5
+theme_override_colors/font_color = Color(0.14902, 0.14902, 0.14902, 1)
+theme_override_fonts/font = ExtResource("7_huasi")
+theme_override_font_sizes/font_size = 36
+text = "Settings"
 
 [node name="Game Title" type="Label" parent="."]
 anchors_preset = 1
@@ -228,3 +238,4 @@ text = "2 KEYS / 0 HITS"
 horizontal_alignment = 1
 
 [node name="splashScreen" parent="." instance=ExtResource("13_ioaeq")]
+visible = false
