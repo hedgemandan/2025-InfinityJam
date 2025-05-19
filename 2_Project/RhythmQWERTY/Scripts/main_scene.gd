@@ -107,6 +107,7 @@ func get_display_text(letter: String) -> String:
 			return letter  # For letters and any other characters
 
 func _ready():
+	$Button_Esc.modulate = Color(1, 0.251, 1, 1)
 	$splashScreen.fade_anim()
 	splashScreen_timer()
 
