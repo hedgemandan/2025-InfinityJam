@@ -1,18 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=18 format=3 uid="uid://bda0noe43wn4p"]
 
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
 [ext_resource type="Texture2D" uid="uid://dyka72tgw6312" path="res://Assets/Layout_V01.png" id="2_jv6wh"]
-[ext_resource type="AudioStream" uid="uid://dawjqf2ov4arj" path="res://Assets/SFX/ui_dlc_alert_01.wav" id="4_iacmt"]
 [ext_resource type="Texture2D" uid="uid://bexst5sff3hj6" path="res://Assets/Final Assets/Background_V01.png" id="4_maf8m"]
 [ext_resource type="PackedScene" uid="uid://egshavxafpjr" path="res://Scenes/button_withBump.tscn" id="5_76v2p"]
 [ext_resource type="PackedScene" uid="uid://dc6wlw5b3l1af" path="res://Scenes/button_Spacebar.tscn" id="5_m1efj"]
 [ext_resource type="FontFile" uid="uid://cg4fnpma8w0ih" path="res://Assets/Fonts/segoeuib.ttf" id="7_huasi"]
 [ext_resource type="Texture2D" uid="uid://bpqd21nnj6gbq" path="res://Assets/Final Assets/Outline_All_V01.png" id="7_mai8y"]
+[ext_resource type="AudioStream" uid="uid://db7gqb366yucx" path="res://Assets/SFX/Final/button_press_success_01.wav" id="7_psl12"]
+[ext_resource type="AudioStream" uid="uid://cql5066fy24w0" path="res://Assets/SFX/Final/button_press_success_02.wav" id="8_2ebs2"]
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="8_m1efj"]
 [ext_resource type="Texture2D" uid="uid://bh4bmaeuesw7j" path="res://Assets/Final Assets/Cog_V01.png" id="9_drdnd"]
+[ext_resource type="AudioStream" uid="uid://drlpmtqfky0d4" path="res://Assets/SFX/Final/button_press_success_03.wav" id="9_oyb3p"]
+[ext_resource type="AudioStream" uid="uid://454kooxxe7lw" path="res://Assets/SFX/Final/button_press_success_04.wav" id="10_jvnna"]
 [ext_resource type="AudioStream" uid="uid://d0wjxp7joaeic" path="res://Assets/Music/WhatsApp Audio 2025-05-19 at 09.58.34_446bae17.mp3" id="12_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://spq2dvgqngsa" path="res://Scenes/splashScreen.tscn" id="13_ioaeq"]
+[ext_resource type="Script" uid="uid://bifv3h6dpraf6" path="res://Scripts/sfx_script.gd" id="14_7ewk0"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6l7je")
@@ -175,15 +179,6 @@ position = Vector2(200, 282)
 [node name="Button49" parent="AllButtons" instance=ExtResource("1_52fb6")]
 position = Vector2(1760, 470)
 
-[node name="SFXCorrectPress" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("4_iacmt")
-
-[node name="SFXCorrectPress2" type="AudioStreamPlayer2D" parent="."]
-
-[node name="SFXCorrectPress3" type="AudioStreamPlayer2D" parent="."]
-
-[node name="SFXCorrectPress4" type="AudioStreamPlayer2D" parent="."]
-
 [node name="Button_Esc" type="Sprite2D" parent="."]
 position = Vector2(160, 145)
 texture = ExtResource("7_mai8y")
@@ -244,3 +239,18 @@ text = "2 KEYS / 0 HITS"
 horizontal_alignment = 1
 
 [node name="splashScreen" parent="." instance=ExtResource("13_ioaeq")]
+
+[node name="sfx_script" type="Node" parent="."]
+script = ExtResource("14_7ewk0")
+
+[node name="SFXCorrectPress" type="AudioStreamPlayer2D" parent="sfx_script"]
+stream = ExtResource("7_psl12")
+
+[node name="SFXCorrectPress2" type="AudioStreamPlayer2D" parent="sfx_script"]
+stream = ExtResource("8_2ebs2")
+
+[node name="SFXCorrectPress3" type="AudioStreamPlayer2D" parent="sfx_script"]
+stream = ExtResource("9_oyb3p")
+
+[node name="SFXCorrectPress4" type="AudioStreamPlayer2D" parent="sfx_script"]
+stream = ExtResource("10_jvnna")

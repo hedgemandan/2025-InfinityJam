@@ -5,6 +5,7 @@ var popup_instance = null
 var end_screen = preload("res://Scenes/end_screen.tscn")
 var end_screen_instance = null
 var button = preload("res://Scenes/button.tscn")
+@onready var sfx_script: Node = $sfx_script
 var timer_flag = 1
 var failButton = null
 var firstSetup = false
@@ -189,8 +190,7 @@ func check_buttons(key_pressed):
 				#if bufferOGcolour:
 					#button_node.modulate = bufferOGcolour
 				if button_node in global.clickablebuttons:
-					
-					SFXCorrectPress.play()
+					sfx_script.CorrectPress()
 					
 					global.clickablebuttons.erase(button_node)
 					global.correcthits += 1
@@ -366,6 +366,7 @@ func spawn_buttons(spawnlimit):
 		else:
 			global.clickablebuttons.append(random_button)
 			random_button.grow_anim()
+			sfx_script.Charge()
 
 func splashScreen_timer():
 	var timer = Timer.new()
