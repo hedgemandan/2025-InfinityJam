@@ -33,7 +33,7 @@ func shrink_anim():
 	isMovingForward = false
 	$AnimationPlayer.speed_scale = -4
 	ChargeSFXStop()
-	#anim_player.play("Grow")
+
 
 func empty_anim():
 	var anim_player = $AnimationPlayer

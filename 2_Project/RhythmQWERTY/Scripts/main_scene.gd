@@ -136,6 +136,7 @@ func game_setup():
 	for button_name in buttons_data.keys():
 		buttons_data[button_name]["Node"].reset_anim()
 		buttons_data[button_name]["Node"].hide()
+		buttons_data[button_name]["Node"].ChargeSFXStop()
 		
 	
 	## Sets the 2 starter buttons to default state, starts the game timers and starts the music 
@@ -362,7 +363,6 @@ func spawn_buttons(spawnlimit):
 		else:
 			global.clickablebuttons.append(random_button)
 			random_button.grow_anim()
-			sfx_script.Charge()
 
 func splashScreen_timer():
 	var timer = Timer.new()
