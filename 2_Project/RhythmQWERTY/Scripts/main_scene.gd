@@ -107,7 +107,8 @@ func get_display_text(letter: String) -> String:
 			return letter  # For letters and any other characters
 
 func _ready():
-	game_setup()
+	$splashScreen.fade_anim()
+	splashScreen_timer()
 
 func game_setup():
 	## Checks all nodes in group "animated nodes" and connects the signal from "Button.tscn", so if any buttons reach the max extent of their animation it triggers the 
@@ -138,9 +139,9 @@ func game_setup():
 	
 	## Sets the 2 starter buttons to default state, starts the game timers and starts the music 
 	buttons_data["Button1"]["Node"].show()
-	buttons_data["Button1"]["Node"].empty_anim() #Makes starting button appear visible
+	buttons_data["Button1"]["Node"].appear_anim() #Makes starting button appear visible
 	buttons_data["Button2"]["Node"].show()
-	buttons_data["Button2"]["Node"].empty_anim() #Makes starting button appear visible
+	buttons_data["Button2"]["Node"].appear_anim() #Makes starting button appear visible
 	get_tree().call_group("timersGroup", "stop")
 	start_newbuttonspawn_timer()
 	start_buttoncharge_timer()
@@ -348,3 +349,14 @@ func spawn_buttons(spawnlimit):
 		else:
 			global.clickablebuttons.append(random_button)
 			random_button.grow_anim()
+
+func splashScreen_timer():
+	var timer = Timer.new()
+	timer.wait_time = 4.5
+	timer.one_shot = true
+	timer.connect("timeout", Callable(self, "_on_timer_timeout_SplashScreen"))
+	add_child(timer)
+	timer.start()
+
+func _on_timer_timeout_SplashScreen():
+	game_setup()

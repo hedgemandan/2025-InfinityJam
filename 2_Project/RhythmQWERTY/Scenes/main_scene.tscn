@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=14 format=3 uid="uid://bda0noe43wn4p"]
 
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bpqd21nnj6gbq" path="res://Assets/Final Assets/Outline_All_V01.png" id="7_mai8y"]
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="8_m1efj"]
 [ext_resource type="Texture2D" uid="uid://bh4bmaeuesw7j" path="res://Assets/Final Assets/Cog_V01.png" id="9_drdnd"]
+[ext_resource type="PackedScene" uid="uid://spq2dvgqngsa" path="res://Scenes/splashScreen.tscn" id="13_ioaeq"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6l7je")
@@ -223,5 +224,7 @@ theme_override_fonts/bold_font = ExtResource("7_huasi")
 theme_override_font_sizes/normal_font_size = 48
 theme_override_font_sizes/bold_font_size = 96
 bbcode_enabled = true
-text = "27 KEYS / 245 HITS"
+text = "2 KEYS / 0 HITS"
 horizontal_alignment = 1
+
+[node name="splashScreen" parent="." instance=ExtResource("13_ioaeq")]
