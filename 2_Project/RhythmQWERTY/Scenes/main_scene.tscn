@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=18 format=3 uid="uid://bda0noe43wn4p"]
 
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
@@ -7,11 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dc6wlw5b3l1af" path="res://Scenes/button_Spacebar.tscn" id="5_m1efj"]
 [ext_resource type="PackedScene" uid="uid://cua7js8antt53" path="res://Scenes/button_Enter.tscn" id="7_2ebs2"]
 [ext_resource type="FontFile" uid="uid://cg4fnpma8w0ih" path="res://Assets/Fonts/segoeuib.ttf" id="7_huasi"]
-[ext_resource type="Texture2D" uid="uid://bpqd21nnj6gbq" path="res://Assets/Final Assets/Outline_All_V01.png" id="7_mai8y"]
+[ext_resource type="Texture2D" uid="uid://hkk0gbl763qu" path="res://Assets/Final Assets/Outline_Tab_V01.png" id="7_oyb3p"]
 [ext_resource type="AudioStream" uid="uid://db7gqb366yucx" path="res://Assets/SFX/Final/button_press_success_01.wav" id="7_psl12"]
 [ext_resource type="AudioStream" uid="uid://cql5066fy24w0" path="res://Assets/SFX/Final/button_press_success_02.wav" id="8_2ebs2"]
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="8_m1efj"]
-[ext_resource type="Texture2D" uid="uid://bh4bmaeuesw7j" path="res://Assets/Final Assets/Cog_V01.png" id="9_drdnd"]
 [ext_resource type="AudioStream" uid="uid://drlpmtqfky0d4" path="res://Assets/SFX/Final/button_press_success_03.wav" id="9_oyb3p"]
 [ext_resource type="AudioStream" uid="uid://454kooxxe7lw" path="res://Assets/SFX/Final/button_press_success_04.wav" id="10_jvnna"]
 [ext_resource type="AudioStream" uid="uid://d0wjxp7joaeic" path="res://Assets/Music/WhatsApp Audio 2025-05-19 at 09.58.34_446bae17.mp3" id="12_ioaeq"]
@@ -176,13 +175,8 @@ position = Vector2(200, 290)
 position = Vector2(1760, 477.5)
 
 [node name="Button_Esc" type="Sprite2D" parent="."]
-position = Vector2(160, 145)
-texture = ExtResource("7_mai8y")
-
-[node name="Cog icon" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(180, 165)
-texture = ExtResource("9_drdnd")
+position = Vector2(182.845, 145)
+texture = ExtResource("7_oyb3p")
 
 [node name="Esc Label" type="Label" parent="."]
 offset_left = 121.0
@@ -191,12 +185,12 @@ offset_right = 191.0
 offset_bottom = 162.5
 theme_override_fonts/font = ExtResource("7_huasi")
 theme_override_font_sizes/font_size = 36
-text = "Esc"
+text = "Tab"
 
 [node name="Settings" type="Label" parent="."]
-offset_left = 222.5
+offset_left = 273.025
 offset_top = 97.5
-offset_right = 360.5
+offset_right = 411.025
 offset_bottom = 162.5
 theme_override_colors/font_color = Color(0.14902, 0.14902, 0.14902, 1)
 theme_override_fonts/font = ExtResource("7_huasi")
