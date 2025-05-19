@@ -7,11 +7,11 @@
 [ext_resource type="Texture2D" uid="uid://bexst5sff3hj6" path="res://Assets/Final Assets/Background_V01.png" id="4_maf8m"]
 [ext_resource type="PackedScene" uid="uid://egshavxafpjr" path="res://Scenes/button_withBump.tscn" id="5_76v2p"]
 [ext_resource type="PackedScene" uid="uid://dc6wlw5b3l1af" path="res://Scenes/button_Spacebar.tscn" id="5_m1efj"]
-[ext_resource type="AudioStream" uid="uid://b2q0g5he7dkr7" path="res://Assets/Music/Loop Jam Actually Fcking Working.mp3" id="6_6ev3c"]
 [ext_resource type="FontFile" uid="uid://cg4fnpma8w0ih" path="res://Assets/Fonts/segoeuib.ttf" id="7_huasi"]
 [ext_resource type="Texture2D" uid="uid://bpqd21nnj6gbq" path="res://Assets/Final Assets/Outline_All_V01.png" id="7_mai8y"]
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="8_m1efj"]
 [ext_resource type="Texture2D" uid="uid://bh4bmaeuesw7j" path="res://Assets/Final Assets/Cog_V01.png" id="9_drdnd"]
+[ext_resource type="AudioStream" uid="uid://d0wjxp7joaeic" path="res://Assets/Music/WhatsApp Audio 2025-05-19 at 09.58.34_446bae17.mp3" id="12_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://spq2dvgqngsa" path="res://Scenes/splashScreen.tscn" id="13_ioaeq"]
 
 [node name="MainScene" type="Node2D"]
@@ -222,7 +222,7 @@ text = "CL/NK"
 horizontal_alignment = 2
 
 [node name="Music" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("6_6ev3c")
+stream = ExtResource("12_ioaeq")
 
 [node name="Score" type="RichTextLabel" parent="."]
 offset_top = 840.0
