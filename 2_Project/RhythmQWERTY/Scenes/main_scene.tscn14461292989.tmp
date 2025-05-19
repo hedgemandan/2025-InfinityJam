@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=19 format=3 uid="uid://bda0noe43wn4p"]
 
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
@@ -18,7 +18,6 @@
 [ext_resource type="AudioStream" uid="uid://d0wjxp7joaeic" path="res://Assets/Music/WhatsApp Audio 2025-05-19 at 09.58.34_446bae17.mp3" id="12_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://spq2dvgqngsa" path="res://Scenes/splashScreen.tscn" id="13_ioaeq"]
 [ext_resource type="Script" uid="uid://bifv3h6dpraf6" path="res://Scripts/sfx_script.gd" id="14_7ewk0"]
-[ext_resource type="AudioStream" uid="uid://bjsvtt8fqua6t" path="res://Assets/SFX/Final/menu_open_01.wav" id="19_oyb3p"]
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6l7je")
@@ -256,6 +255,3 @@ stream = ExtResource("9_oyb3p")
 
 [node name="SFXCorrectPress4" type="AudioStreamPlayer2D" parent="sfx_script"]
 stream = ExtResource("10_jvnna")
-
-[node name="menu_close" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("19_oyb3p")

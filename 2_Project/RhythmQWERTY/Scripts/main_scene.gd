@@ -15,6 +15,8 @@ var button_instance = null
 @onready var button_array = [$AllButtons/Button, $AllButtons/Button2, $AllButtons/Button3, $AllButtons/Button4, $AllButtons/Button5, $AllButtons/Button6, $AllButtons/Button7, $AllButtons/Button8, $AllButtons/Button9, $AllButtons/Button10, $AllButtons/Button11, $AllButtons/Button12, $AllButtons/Button13, $AllButtons/Button14, $AllButtons/Button15, $AllButtons/Button16, $AllButtons/Button17, $AllButtons/Button18, $AllButtons/Button19, $AllButtons/Button20, $AllButtons/Button21, $AllButtons/Button22, $AllButtons/Button23, $AllButtons/Button24, $AllButtons/Button25, $AllButtons/Button26, $AllButtons/Button27, $AllButtons/Button28, $AllButtons/Button29, $AllButtons/Button30, $AllButtons/Button31, $AllButtons/Button32, $AllButtons/Button33, $AllButtons/Button34, $AllButtons/Button35, $AllButtons/Button36, $AllButtons/Button37, $AllButtons/Button38, $AllButtons/Button39, $AllButtons/Button40, $AllButtons/Button41, $AllButtons/Button42, $AllButtons/Button43, $AllButtons/Button44, $AllButtons/Button45, $AllButtons/Button46, $AllButtons/Button47, $AllButtons/Button48, $AllButtons/Button49]
 var bufferOGcolour
 @onready var Music = $Music
+@onready var menu_close: AudioStreamPlayer2D = $menu_close
+
 
 @onready var score: RichTextLabel = $Score
 @onready var game_title: Label = $"Game Title"
@@ -165,7 +167,8 @@ func game_setup():
 			button_node.modulate = buttons_data[button_name]["Color"]
 			print("Applied color to:", button_name)
 
-
+func _menu_closed_sfx():
+	menu_close.play()
 
 ## Popup Menu Function
 func _input(event):
@@ -186,7 +189,7 @@ func check_buttons(key_pressed):
 				button_node.scale = Vector2(1, 1)
 				#if bufferOGcolour:
 					#button_node.modulate = bufferOGcolour
-				if button_node in global.clickablebuttons:
+				if button_node in global.clickablebuttons && global.gameendscreen == false:
 					sfx_script.CorrectPress()
 					
 					global.clickablebuttons.erase(button_node)
@@ -213,6 +216,7 @@ func _on_reached_max_extent(failedNode):
 	
 func game_over():
 	get_tree().paused = true
+	global.gameendscreen = true
 	for button_name in buttons_data.keys():
 		var button_node = buttons_data[button_name]["Node"]
 		if button_node:
@@ -237,6 +241,7 @@ func toggle_popup():
 	if popup_instance:
 		pass
 	else:
+		menu_close.play()
 		get_tree().paused = true
 		popup_instance = popup_menu.instantiate()
 		add_child(popup_instance)

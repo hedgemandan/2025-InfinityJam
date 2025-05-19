@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://mcqvkfrekp01"]
+[gd_scene load_steps=11 format=3 uid="uid://mcqvkfrekp01"]
 
 [ext_resource type="Script" uid="uid://dgdc47gfy1j4x" path="res://Scripts/popup_menu.gd" id="1_fvsca"]
 [ext_resource type="Texture2D" uid="uid://bexst5sff3hj6" path="res://Assets/Final Assets/Background_V01.png" id="2_v67u6"]
@@ -8,6 +8,8 @@
 [ext_resource type="FontFile" uid="uid://beoiypswmi27h" path="res://Assets/Fonts/seguibl.ttf" id="5_dfv23"]
 [ext_resource type="PackedScene" uid="uid://dc6wlw5b3l1af" path="res://Scenes/button_Spacebar.tscn" id="6_8lisu"]
 [ext_resource type="Texture2D" uid="uid://cp64a88xpm46h" path="res://Assets/Final Assets/MenuSpacebar_V01.png" id="7_8lisu"]
+[ext_resource type="AudioStream" uid="uid://p77r7ajh62bn" path="res://Assets/SFX/Final/menu_interact_01.wav" id="9_blt3t"]
+[ext_resource type="AudioStream" uid="uid://ddqs8rpttcpe3" path="res://Assets/SFX/Final/menu_close_01.wav" id="10_frimn"]
 
 [node name="PopupMenu" type="Control"]
 process_mode = 3
@@ -272,5 +274,11 @@ theme_override_fonts/font = ExtResource("5_dfv23")
 theme_override_font_sizes/font_size = 96
 text = "CL/NK"
 horizontal_alignment = 2
+
+[node name="menu_interact" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_blt3t")
+
+[node name="menu_open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_frimn")
 
 [connection signal="pressed" from="Background/Continue" to="." method="_on_continue_pressed"]

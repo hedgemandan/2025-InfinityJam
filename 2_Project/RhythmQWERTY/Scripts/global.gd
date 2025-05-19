@@ -12,3 +12,4 @@ var gamestate = 0 #set this to 1 for end game
 var timer = 2.5
 var HighScore_numberoffbuttonsvisible = 2
 var HighScore_correcthits = 0
+var gameendscreen = false
