@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bda0noe43wn4p"]
+[gd_scene load_steps=19 format=3 uid="uid://bda0noe43wn4p"]
 
 [ext_resource type="Script" uid="uid://b1pqb7xeucsme" path="res://Scripts/main_scene.gd" id="1_6l7je"]
 [ext_resource type="PackedScene" uid="uid://bq7kgpf0ql76u" path="res://Scenes/button.tscn" id="1_52fb6"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://d0wjxp7joaeic" path="res://Assets/Music/WhatsApp Audio 2025-05-19 at 09.58.34_446bae17.mp3" id="12_ioaeq"]
 [ext_resource type="PackedScene" uid="uid://spq2dvgqngsa" path="res://Scenes/splashScreen.tscn" id="13_ioaeq"]
 [ext_resource type="Script" uid="uid://bifv3h6dpraf6" path="res://Scripts/sfx_script.gd" id="14_7ewk0"]
+[ext_resource type="AudioStream" uid="uid://ps1p3x7en6ln" path="res://Assets/SFX/Final/button_restart_01.wav" id="18_2ebs2"]
 [ext_resource type="AudioStream" uid="uid://bjsvtt8fqua6t" path="res://Assets/SFX/Final/menu_open_01.wav" id="19_oyb3p"]
 
 [node name="MainScene" type="Node2D"]
@@ -251,3 +252,6 @@ volume_db = 3.0
 
 [node name="menu_close" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("19_oyb3p")
+
+[node name="restart" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_2ebs2")

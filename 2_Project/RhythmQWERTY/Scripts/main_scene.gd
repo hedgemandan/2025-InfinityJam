@@ -16,6 +16,8 @@ var button_instance = null
 var bufferOGcolour
 @onready var Music = $Music
 @onready var menu_close: AudioStreamPlayer2D = $menu_close
+@onready var restart: AudioStreamPlayer2D = $restart
+
 
 
 @onready var score: RichTextLabel = $Score
@@ -122,6 +124,7 @@ func game_setup():
 	global.clickablebuttons.clear()
 	global.correcthits = 0
 	global.incorrecthits = 0
+	restart.play()
 	game_title.add_theme_color_override("font_color", Color(0.15, 0.15, 0.15))
 	score.add_theme_color_override("default_color", Color(0.15, 0.15, 0.15))
 	$Button_Esc.modulate = Color(1, 0.251, 1, 1)
