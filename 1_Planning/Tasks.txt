@@ -3,8 +3,6 @@ Resolution too big for 1920 screen - maybe enable fullscreen but I like playing 
 
 
 Add in SFX [Code]
-Add in level of escalation beyond gamestate49 [Code]
-Space bar animation [Art]
 
 
 Stretch:
