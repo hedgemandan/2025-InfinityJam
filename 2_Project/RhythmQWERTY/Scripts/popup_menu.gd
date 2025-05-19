@@ -26,7 +26,7 @@ func _input(event):
 			menu_interact.play()
 			update_volume_button()
 			AudioServer.set_bus_volume_db(Master, linear_to_db(global.volume*0.111111))
-		if event.keycode == KEY_ESCAPE or event.keycode == KEY_SPACE:
+		if event.keycode == KEY_TAB or event.keycode == KEY_SPACE:
 			unpause()
 
 func update_volume_button():
