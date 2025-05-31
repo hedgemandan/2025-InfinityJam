@@ -175,7 +175,7 @@ func _menu_closed_sfx():
 
 ## Popup Menu Function
 func _input(event):
-	if event is InputEventKey and event.is_pressed() and event.keycode == KEY_TAB:
+	if event is InputEventKey and event.is_released() and event.keycode == KEY_TAB:
 		toggle_popup()
 ## Key press detection event
 	if event is InputEventKey and event.is_pressed():

@@ -18,7 +18,7 @@ func updateHighScore():
 	score.text = "HIGH SCORE: " + str(global.HighScore_numberoffbuttonsvisible) + " KEYS / " + str(global.HighScore_correcthits) + " HITS"
 
 func _input(event):
-	if event is InputEventKey and event.is_pressed():
+	if event is InputEventKey and event.is_released():
 		if event.keycode >= KEY_0 and event.keycode <= KEY_9:
 			print("Number key pressed:", event.keycode - KEY_0)
 			
