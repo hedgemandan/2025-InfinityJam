@@ -278,6 +278,7 @@ func _on_timer_timeoutNB():
 			global.numberoffbuttonsvisible += 1
 			if global.numberoffbuttonsvisible > global.HighScore_numberoffbuttonsvisible:
 				global.HighScore_numberoffbuttonsvisible = global.numberoffbuttonsvisible
+				global.cansendhighscore = true
 			global.gamestep += 1
 			print("global.gamestep = ", global.gamestep)
 	else:

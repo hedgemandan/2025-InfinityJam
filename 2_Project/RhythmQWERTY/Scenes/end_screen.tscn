@@ -58,7 +58,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_8yanq")
 theme_override_font_sizes/font_size = 48
-text = "RESTART  [SPACEBAR]"
+text = "RESTART  [ENTER]"
 horizontal_alignment = 1
 
 [node name="Restart Button" parent="TextureRect" instance=ExtResource("2_gdxnu")]
@@ -88,4 +88,55 @@ bbcode_enabled = true
 text = "HIGH SCORE: 27 KEYS / 245 HITS"
 horizontal_alignment = 1
 
+[node name="PlayerNameHeader" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -889.0
+offset_top = 299.0
+offset_right = -380.0
+offset_bottom = 388.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_8yanq")
+theme_override_fonts/bold_font = ExtResource("3_8yanq")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 48
+text = "TO SUBMIT A HIGH SCORE, 
+ENTER PLAYER NAME HERE:
+"
+horizontal_alignment = 1
+
+[node name="PlayerName" type="RichTextLabel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -893.0
+offset_top = 384.0
+offset_right = -384.0
+offset_bottom = 473.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_fonts/normal_font = ExtResource("3_8yanq")
+theme_override_fonts/bold_font = ExtResource("3_8yanq")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 48
+text = "
+"
+horizontal_alignment = 1
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
 [connection signal="restart_game" from="." to="." method="_on_restart_game"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

@@ -13,3 +13,5 @@ var timer = 2.5
 var HighScore_numberoffbuttonsvisible = 2
 var HighScore_correcthits = 0
 var gameendscreen = false
+var playerName = "DEFAULT"
+var cansendhighscore = false
